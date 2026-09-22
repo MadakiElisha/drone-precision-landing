@@ -33,3 +33,6 @@ ml_training/weights/
 *.pt
 *.onnx
 *.engine
+
+# External tools built from source
+tools/Micro-XRCE-DDS-Agent/
