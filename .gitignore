@@ -1,0 +1,35 @@
+# ROS 2 build artifacts (never commit compiled binaries)
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Python virtual environment
+venv/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C++ build artifacts
+*.o
+*.obj
+*.elf
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Machine Learning artifacts (datasets and weights are too large for GitHub)
+ml_training/datasets/
+ml_training/runs/
+ml_training/weights/
+*.pt
+*.onnx
+*.engine
