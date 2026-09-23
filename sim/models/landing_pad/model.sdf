@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="landing_pad">
+    <static>true</static>
+    <link name="base_link">
+      <!-- Dark base pad -->
+      <visual name="pad_visual">
+        <geometry>
+          <box>
+            <size>1.0 1.0 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.0 0.0 0.0 1</specular>
+        </material>
+      </visual>
+      <!-- White marker area on top -->
+      <visual name="marker_visual">
+        <pose>0 0 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.002</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0.0 0.0 0.0 1</specular>
+        </material>
+      </visual>
+      <collision name="pad_collision">
+        <geometry>
+          <box>
+            <size>1.0 1.0 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>
