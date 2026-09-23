@@ -7,7 +7,7 @@
 export PX4_DIR="/home/madakie/PX4-Autopilot"
 
 # Simulation model
-export PX4_SIM_MODEL="gz_x500"
+export PX4_SIM_MODEL="gz_x500_pl"
 
 # XRCE-DDS Agent port
 export XRCE_PORT=8888
