@@ -6,49 +6,59 @@
 
 set -e
 
-# Load configuration
-source "$(dirname "$0")/config.sh"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/config.sh"
 
-# Colors
-RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+RED='\033[0;31m'
 NC='\033[0m'
 
-echo -e "${GREEN}[sim] PX4_DIR: ${PX4_DIR}${NC}"
-echo -e "${GREEN}[sim] Model:   ${PX4_SIM_MODEL}${NC}"
-echo -e "${GREEN}[sim] Port:    ${XRCE_PORT}${NC}"
-echo ""
+WORLD_FILE="${PROJECT_ROOT}/sim/worlds/${PX4_GZ_WORLD}.sdf"
 
-# Verify PX4 directory exists
+echo -e "${GREEN}[sim] PX4_DIR:   ${PX4_DIR}${NC}"
+echo -e "${GREEN}[sim] Model:     ${PX4_SIM_MODEL}${NC}"
+echo -e "${GREEN}[sim] World:     ${WORLD_FILE}${NC}"
+echo -e "${GREEN}[sim] Port:      ${XRCE_PORT}${NC}"
+
 if [ ! -d "${PX4_DIR}" ]; then
     echo -e "${RED}[error] PX4 directory not found: ${PX4_DIR}${NC}"
     exit 1
 fi
 
-echo -e "${GREEN}[sim] Starting micro-XRCE-DDS Agent on port ${XRCE_PORT}${NC}"
-MicroXRCEAgent udp4 -p ${XRCE_PORT} &
-XRCE_PID=$!
-
+# Purge orphaned processes
+echo -e "${YELLOW}[sim] Purging orphaned sim processes...${NC}"
+pkill -f "gz sim"       2>/dev/null || true
+pkill -f "gz server"    2>/dev/null || true
+pkill -f MicroXRCEAgent 2>/dev/null || true
+pkill -f "bin/px4"      2>/dev/null || true
 sleep 2
 
-echo -e "${GREEN}[sim] Starting PX4 SITL${NC}"
-cd ${PX4_DIR}
-make px4_sitl ${PX4_SIM_MODEL} &
-PX4_PID=$!
+# Start Agent in the background, hide its output to keep the terminal clean
+echo -e "${GREEN}[sim] Starting micro-XRCE-DDS Agent on port ${XRCE_PORT}${NC}"
+MicroXRCEAgent udp4 -p ${XRCE_PORT} > /dev/null 2>&1 &
+XRCE_PID=$!
+sleep 2
 
-# Trap Ctrl+C for clean shutdown
+# Cleanup function for when the user presses Ctrl+C
 cleanup() {
     echo ""
     echo -e "${YELLOW}[sim] Shutting down...${NC}"
-    kill $XRCE_PID 2>/dev/null || true
-    kill $PX4_PID 2>/dev/null || true
-    wait 2>/dev/null || true
+    kill ${XRCE_PID} 2>/dev/null || true
+    pkill -f "gz sim"       2>/dev/null || true
+    pkill -f "gz server"    2>/dev/null || true
+    pkill -f MicroXRCEAgent 2>/dev/null || true
+    pkill -f "bin/px4"      2>/dev/null || true
     echo -e "${GREEN}[sim] Clean shutdown complete.${NC}"
     exit 0
 }
 
-trap cleanup SIGINT SIGTERM
+# Trap Ctrl+C (SIGINT) and script exit
+trap cleanup SIGINT SIGTERM EXIT
 
-wait -n $XRCE_PID $PX4_PID 2>/dev/null || true
-cleanup
+# Run PX4 in the FOREGROUND so you can type commands in the pxh> prompt
+echo -e "${GREEN}[sim] Starting PX4 SITL in foreground...${NC}"
+echo -e "${YELLOW}[sim] Type 'commander takeoff' in the pxh> prompt. Press Ctrl+C to exit.${NC}"
+cd "${PX4_DIR}"
+export PX4_GZ_WORLD
+make px4_sitl ${PX4_SIM_MODEL}
