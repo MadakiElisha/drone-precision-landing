@@ -6,6 +6,36 @@ import cv2
 import numpy as np
 
 
+def _rot_to_quat(R):
+    """Robust rotation-matrix to quaternion conversion (all four branches)."""
+    tr = R[0, 0] + R[1, 1] + R[2, 2]
+    if tr > 0:
+        S = np.sqrt(tr + 1.0) * 2.0
+        qw = 0.25 * S
+        qx = (R[2, 1] - R[1, 2]) / S
+        qy = (R[0, 2] - R[2, 0]) / S
+        qz = (R[1, 0] - R[0, 1]) / S
+    elif (R[0, 0] > R[1, 1]) and (R[0, 0] > R[2, 2]):
+        S = np.sqrt(1.0 + R[0, 0] - R[1, 1] - R[2, 2]) * 2.0
+        qw = (R[2, 1] - R[1, 2]) / S
+        qx = 0.25 * S
+        qy = (R[0, 1] + R[1, 0]) / S
+        qz = (R[0, 2] + R[2, 0]) / S
+    elif R[1, 1] > R[2, 2]:
+        S = np.sqrt(1.0 + R[1, 1] - R[0, 0] - R[2, 2]) * 2.0
+        qw = (R[0, 2] - R[2, 0]) / S
+        qx = (R[0, 1] + R[1, 0]) / S
+        qy = 0.25 * S
+        qz = (R[1, 2] + R[2, 1]) / S
+    else:
+        S = np.sqrt(1.0 + R[2, 2] - R[0, 0] - R[1, 1]) * 2.0
+        qw = (R[1, 0] - R[0, 1]) / S
+        qx = (R[0, 2] + R[2, 0]) / S
+        qy = (R[1, 2] + R[2, 1]) / S
+        qz = 0.25 * S
+    return float(qx), float(qy), float(qz), float(qw)
+
+
 class ArucoDetector(Node):
     def __init__(self):
         super().__init__("aruco_detector")
@@ -67,10 +97,7 @@ class ArucoDetector(Node):
                     continue
                 tvec = tvec.flatten()
                 R, _ = cv2.Rodrigues(rvec)
-                qw = np.sqrt(max(1.0 + R[0, 0] + R[1, 1] + R[2, 2], 1e-6)) / 2.0
-                qx = (R[2, 1] - R[1, 2]) / (4.0 * qw)
-                qy = (R[0, 2] - R[2, 0]) / (4.0 * qw)
-                qz = (R[1, 0] - R[0, 1]) / (4.0 * qw)
+                qx, qy, qz, qw = _rot_to_quat(R)
 
                 det = Detection3D()
                 hyp = ObjectHypothesisWithPose()
