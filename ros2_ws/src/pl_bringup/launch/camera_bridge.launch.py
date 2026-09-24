@@ -17,4 +17,10 @@ def generate_launch_description():
         ],
         output="screen",
     )
-    return LaunchDescription([bridge])
+    perception = Node(
+        package="pl_perception",
+        executable="aruco_detector",
+        name="aruco_detector",
+        output="screen",
+    )
+    return LaunchDescription([bridge, perception])

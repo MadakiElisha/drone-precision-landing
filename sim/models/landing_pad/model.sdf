@@ -27,7 +27,12 @@
         <material>
           <ambient>1 1 1 1</ambient>
           <diffuse>1 1 1 1</diffuse>
-          <specular>0.0 0.0 0.0 1</specular>
+          <specular>0 0 0 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>materials/textures/aruco_0.png</albedo_map>
+            </metal>
+          </pbr>
         </material>
       </visual>
       <collision name="pad_collision">
