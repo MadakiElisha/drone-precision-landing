@@ -1,8 +1,6 @@
-import os
-from glob import glob
 from setuptools import setup
 
-package_name = "pl_bringup"
+package_name = "pl_control"
 
 setup(
     name=package_name,
@@ -11,14 +9,16 @@ setup(
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/" + package_name]),
         ("share/" + package_name, ["package.xml"]),
-        (os.path.join("share", package_name, "launch"), glob("launch/*.launch.py")),
-        (os.path.join("share", package_name, "config"), glob("config/*.yaml")),
     ],
     install_requires=["setuptools"],
     zip_safe=True,
     maintainer="madakie",
     maintainer_email="madakie@todo.todo",
-    description="Bringup launch files for the precision landing stack",
+    description="Closed-loop precision landing control",
     license="MIT",
-    entry_points={"console_scripts": []},
+    entry_points={
+        "console_scripts": [
+            "landing_controller = pl_control.landing_controller:main",
+        ],
+    },
 )

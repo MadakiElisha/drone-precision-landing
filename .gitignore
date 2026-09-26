@@ -36,3 +36,4 @@ ml_training/weights/
 
 # External tools built from source
 tools/Micro-XRCE-DDS-Agent/
+ros2_ws/src/px4_msgs/

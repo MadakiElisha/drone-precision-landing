@@ -8,8 +8,8 @@ def generate_launch_description():
         executable="parameter_bridge",
         name="gz_camera_bridge",
         arguments=[
-            "/downward_camera@sensor_msgs/msg/Image@gz.msgs.Image",
-            "/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo",
+            "/downward_camera@sensor_msgs/msg/Image[gz.msgs.Image",
+            "/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
         ],
         remappings=[
             ("/downward_camera", "/pl/camera/image_raw"),
@@ -23,4 +23,11 @@ def generate_launch_description():
         name="aruco_detector",
         output="screen",
     )
-    return LaunchDescription([bridge, perception])
+    control = Node(
+        package="pl_control",
+        executable="landing_controller",
+        name="landing_controller",
+        parameters=[{"allow_descent": True}],
+        output="screen",
+    )
+    return LaunchDescription([bridge, perception, control])
