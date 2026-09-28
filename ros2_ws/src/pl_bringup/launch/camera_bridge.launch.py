@@ -1,8 +1,13 @@
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.conditions import IfCondition, UnlessCondition
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
+    use_yolo = LaunchConfiguration("use_yolo", default="true")
+
     bridge = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
@@ -17,11 +22,19 @@ def generate_launch_description():
         ],
         output="screen",
     )
-    perception = Node(
+    aruco = Node(
         package="pl_perception",
-        executable="yolo_detector",
+        executable="aruco_detector",
         name="aruco_detector",
         output="screen",
+        condition=UnlessCondition(use_yolo),
+    )
+    yolo = Node(
+        package="pl_perception",
+        executable="yolo_detector",
+        name="yolo_detector",
+        output="screen",
+        condition=IfCondition(use_yolo),
     )
     control = Node(
         package="pl_control",
@@ -30,4 +43,7 @@ def generate_launch_description():
         parameters=[{"allow_descent": True}],
         output="screen",
     )
-    return LaunchDescription([bridge, perception, control])
+    return LaunchDescription([
+        DeclareLaunchArgument("use_yolo", default_value="true"),
+        bridge, aruco, yolo, control,
+    ])

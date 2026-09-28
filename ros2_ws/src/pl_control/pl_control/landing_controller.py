@@ -13,7 +13,8 @@ from px4_msgs.msg import (
     VehicleStatus,
 )
 
-TRACK, BLIND, HOLD, DONE = "TRACK", "BLIND", "HOLD", "DONE"
+CLIMB, TRACK, BLIND, HOLD, DONE = (
+    "CLIMB", "TRACK", "BLIND", "HOLD", "DONE")
 
 
 class LandingController(Node):
@@ -29,6 +30,7 @@ class LandingController(Node):
     def __init__(self):
         super().__init__("landing_controller")
         self.declare_parameter("allow_descent", True)
+        self.declare_parameter("auto_climb", True)
         self.k_xy = 0.5
         self.v_max = 0.8
         self.k_z = 0.8
@@ -39,7 +41,8 @@ class LandingController(Node):
         self.blind_rate = 0.12
         self.blind_budget = 25.0
 
-        self.state = TRACK
+        self.state = CLIMB if self.get_parameter(
+            "auto_climb").value else TRACK
         self.oz_target = None
         self.last_oz = None
         self.det = None
@@ -107,6 +110,21 @@ class LandingController(Node):
         cmd.from_external = True
         self.pub_cmd.publish(cmd)
 
+    def _update_stall(self, now):
+        if self.probe_time is None:
+            self.probe_time = now
+            self.probe_z = self.local_z
+            return
+        dt = (now - self.probe_time).nanoseconds * 1e-9
+        if dt >= 1.0:
+            if self.local_z is not None and self.probe_z is not None:
+                if (self.local_z - self.probe_z) < 0.01:
+                    self.stall_count += 1
+                else:
+                    self.stall_count = 0
+            self.probe_time = now
+            self.probe_z = self.local_z
+
     def cmd_cb(self):
         now = self.get_clock().now()
         ts = int(now.nanoseconds // 1000)
@@ -146,11 +164,29 @@ class LandingController(Node):
         vx = vy = vz = 0.0
         opt = None
 
+        if self.state == CLIMB:
+            if self.local_z is not None and self.local_z > -2.2:
+                vz = -0.6
+                if fresh:
+                    ox, oy, oz = self.det
+                    opt = (ox, oy, oz)
+                    bx, by = -oy, -ox
+                    v_bx = max(-self.v_max, min(self.v_max, self.k_xy * bx))
+                    v_by = max(-self.v_max, min(self.v_max, self.k_xy * -by))
+                    cy = math.cos(self.heading)
+                    sy = math.sin(self.heading)
+                    vx = v_bx * cy - v_by * sy
+                    vy = v_bx * sy + v_by * cy
+            else:
+                self.state = TRACK
+                self.get_logger().info("climb complete: entering TRACK")
+
         if self.state == TRACK:
             if fresh:
                 ox, oy, oz = self.det
                 opt = (ox, oy, oz)
                 self.last_oz = oz
+                self._update_stall(now)
                 bx, by = -oy, -ox
                 v_bx = max(-self.v_max, min(self.v_max, self.k_xy * bx))
                 v_by = max(-self.v_max, min(self.v_max, self.k_xy * -by))
@@ -167,7 +203,12 @@ class LandingController(Node):
                             self.oz_target - self.ramp_per_tick, self.touchdown)
                     vz = max(-self.vz_max, min(
                         self.vz_max, self.k_z * (oz - self.oz_target)))
-                    if oz <= self.touchdown + 0.02:
+                    if (h_err < 0.15 and oz <= 0.55) or self.stall_count >= 2:
+                        self.state = DONE
+                        self.get_logger().warn(
+                            f"close-range lock oz={oz:.2f} "
+                            f"stall={self.stall_count}: NAV_LAND handoff")
+                    elif oz <= self.touchdown + 0.02:
                         vz = 0.0
                 else:
                     self.oz_target = None
@@ -188,19 +229,7 @@ class LandingController(Node):
             vz = self.blind_rate
             elapsed = (now - self.blind_start).nanoseconds * 1e-9
 
-            if self.probe_time is None:
-                self.probe_time = now
-                self.probe_z = self.local_z
-            else:
-                dt = (now - self.probe_time).nanoseconds * 1e-9
-                if dt >= 1.0:
-                    if self.local_z is not None and self.probe_z is not None:
-                        if (self.local_z - self.probe_z) < 0.01:
-                            self.stall_count += 1
-                        else:
-                            self.stall_count = 0
-                    self.probe_time = now
-                    self.probe_z = self.local_z
+            self._update_stall(now)
 
             if self.landed or self.stall_count >= 2:
                 self.state = DONE
