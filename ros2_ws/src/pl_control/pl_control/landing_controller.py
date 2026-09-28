@@ -4,18 +4,11 @@ import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from vision_msgs.msg import Detection3DArray
-from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint
+from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint, VehicleLocalPosition
 
 
 class LandingController(Node):
-    """Proportional precision-landing controller driven by ArUco tag pose.
-
-    Horizontal: P control on tag body-frame position (measured mapping
-    bx=-oy, by=-ox), passed as NED/FRD velocity (y sign flipped).
-    Vertical: P control on tag depth oz against a descending target ramp.
-    PX4 offboard altitude hold drifts in SITL, so we close the vertical
-    loop on vision instead.
-    """
+    """Yaw-invariant precision landing controller."""
 
     def __init__(self):
         super().__init__("landing_controller")
@@ -24,11 +17,13 @@ class LandingController(Node):
         self.v_max = 0.8
         self.k_z = 0.8
         self.vz_max = 0.5
-        self.ramp_per_tick = 0.0025   # ~0.05 m/s wall ~= 0.25 m/s sim
-        self.touchdown = 0.25         # tag depth (m) at which we hold
+        self.ramp_per_tick = 0.0025   
+        self.touchdown = 0.25         
+        
         self.oz_target = None
         self.det = None
         self.det_time = self.get_clock().now()
+        self.heading = 0.0  # Current yaw in radians (NED)
         self.last_log_sec = -1
 
         qos = QoSProfile(
@@ -36,13 +31,23 @@ class LandingController(Node):
             reliability=ReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
         )
+        
         self.sub = self.create_subscription(
             Detection3DArray, "/pl/perception/tags", self.det_cb, 10)
+            
+        # NEW: Subscribe to PX4 local position to get the current heading
+        self.sub_pos = self.create_subscription(
+            VehicleLocalPosition, "/fmu/out/vehicle_local_position", self.pos_cb, qos)
+            
         self.pub_mode = self.create_publisher(
             OffboardControlMode, "/fmu/in/offboard_control_mode", qos)
         self.pub_sp = self.create_publisher(
             TrajectorySetpoint, "/fmu/in/trajectory_setpoint", qos)
         self.timer = self.create_timer(0.05, self.cmd_cb)
+
+    def pos_cb(self, msg):
+        # Update our knowledge of the drone's current yaw
+        self.heading = msg.heading
 
     def det_cb(self, msg):
         if msg.detections and msg.detections[0].results:
@@ -69,9 +74,18 @@ class LandingController(Node):
         if self.det is not None and not stale:
             ox, oy, oz = self.det
             opt = (ox, oy, oz)
-            bx, by = -oy, -ox          # measured optical->body mapping
-            vx = max(-self.v_max, min(self.v_max, self.k_xy * bx))
-            vy = max(-self.v_max, min(self.v_max, self.k_xy * -by))
+            bx, by = -oy, -ox          # Measured optical->body mapping
+            
+            # 1. Calculate desired velocity in the BODY frame
+            v_bx = max(-self.v_max, min(self.v_max, self.k_xy * bx))
+            v_by = max(-self.v_max, min(self.v_max, self.k_xy * -by))
+            
+            # 2. Rotate body velocity into the NED frame using current heading
+            cy = math.cos(self.heading)
+            sy = math.sin(self.heading)
+            vx = v_bx * cy - v_by * sy
+            vy = v_bx * sy + v_by * cy
+
             h_err = math.hypot(bx, by)
             if h_err < 0.15:
                 if self.oz_target is None:
@@ -97,9 +111,10 @@ class LandingController(Node):
             if opt is None:
                 self.get_logger().info("opt=NONE tgt=--.-- cmd=(0.00, 0.00, 0.00) HOLD")
             else:
+                # Log the final NED commands being sent
                 self.get_logger().info(
                     f"opt=({opt[0]:+.2f},{opt[1]:+.2f},{opt[2]:.2f}) tgt={tgt} "
-                    f"cmd=({vx:+.2f},{vy:+.2f},{vz:+.2f})")
+                    f"yaw={math.degrees(self.heading):+.0f} cmd_ned=({vx:+.2f},{vy:+.2f},{vz:+.2f})")
 
 
 def main(args=None):
