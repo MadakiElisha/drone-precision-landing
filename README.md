@@ -29,7 +29,7 @@ Measured conventions (do not re-derive, re-validate if camera mount changes):
 Flight protocol: ./run_sim.sh -> commander takeoff ->
 ros2 launch pl_bringup camera_bridge.launch.py -> commander mode offboard.
 
-Baseline Touchdown Error: 10.5 cm (1 m offset, Yaw-invariant control).
+Baseline Touchdown Error: ~4 cm (hands-off mission, auto-disarm) (1 m offset, Yaw-invariant control).
 
 Known limits: terminal standoff ~0.4-0.5 m (marker leaves reliable detection
 range); final touchdown via commander land; sim RTF ~20% on WSL2 software
