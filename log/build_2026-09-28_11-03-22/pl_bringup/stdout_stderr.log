@@ -1,0 +1,35 @@
+running egg_info
+creating ../../../build/pl_bringup/pl_bringup.egg-info
+writing ../../../build/pl_bringup/pl_bringup.egg-info/PKG-INFO
+writing dependency_links to ../../../build/pl_bringup/pl_bringup.egg-info/dependency_links.txt
+writing requirements to ../../../build/pl_bringup/pl_bringup.egg-info/requires.txt
+writing top-level names to ../../../build/pl_bringup/pl_bringup.egg-info/top_level.txt
+writing manifest file '../../../build/pl_bringup/pl_bringup.egg-info/SOURCES.txt'
+reading manifest file '../../../build/pl_bringup/pl_bringup.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../../build/pl_bringup/pl_bringup.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/madakie/precision_landing/build/pl_bringup/build
+creating /home/madakie/precision_landing/build/pl_bringup/build/lib
+creating /home/madakie/precision_landing/build/pl_bringup/build/lib/pl_bringup
+copying pl_bringup/__init__.py -> /home/madakie/precision_landing/build/pl_bringup/build/lib/pl_bringup
+running install
+running install_lib
+creating /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup
+copying /home/madakie/precision_landing/build/pl_bringup/build/lib/pl_bringup/__init__.py -> /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup
+byte-compiling /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/madakie/precision_landing/install/pl_bringup/share/ament_index
+creating /home/madakie/precision_landing/install/pl_bringup/share/ament_index/resource_index
+creating /home/madakie/precision_landing/install/pl_bringup/share/ament_index/resource_index/packages
+copying resource/pl_bringup -> /home/madakie/precision_landing/install/pl_bringup/share/ament_index/resource_index/packages
+copying package.xml -> /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup
+creating /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/launch
+copying launch/camera_bridge.launch.py -> /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/launch
+creating /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/config
+copying config/gz_bridge.yaml -> /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/config
+running install_egg_info
+Copying ../../../build/pl_bringup/pl_bringup.egg-info to /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup-0.1.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/madakie/precision_landing/build/pl_bringup/install.log'

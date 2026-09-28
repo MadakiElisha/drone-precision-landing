@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: pl-bringup
+Version: 0.1.0
+Summary: Bringup launch files for the precision landing stack
+Maintainer: madakie
+Maintainer-email: madakie@todo.todo
+License: MIT
+License-File: LICENSE

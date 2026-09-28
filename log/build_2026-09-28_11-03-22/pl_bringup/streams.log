@@ -1,0 +1,37 @@
+[0.650s] Invoking command in '/home/madakie/precision_landing/ros2_ws/src/pl_bringup': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/madakie/precision_landing/build/pl_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/pl_bringup build --build-base /home/madakie/precision_landing/build/pl_bringup/build install --record /home/madakie/precision_landing/build/pl_bringup/install.log --single-version-externally-managed install_data
+[0.862s] running egg_info
+[0.862s] creating ../../../build/pl_bringup/pl_bringup.egg-info
+[0.876s] writing ../../../build/pl_bringup/pl_bringup.egg-info/PKG-INFO
+[0.876s] writing dependency_links to ../../../build/pl_bringup/pl_bringup.egg-info/dependency_links.txt
+[0.877s] writing requirements to ../../../build/pl_bringup/pl_bringup.egg-info/requires.txt
+[0.877s] writing top-level names to ../../../build/pl_bringup/pl_bringup.egg-info/top_level.txt
+[0.877s] writing manifest file '../../../build/pl_bringup/pl_bringup.egg-info/SOURCES.txt'
+[0.908s] reading manifest file '../../../build/pl_bringup/pl_bringup.egg-info/SOURCES.txt'
+[0.909s] adding license file 'LICENSE'
+[0.909s] writing manifest file '../../../build/pl_bringup/pl_bringup.egg-info/SOURCES.txt'
+[0.910s] running build
+[0.910s] running build_py
+[0.910s] creating /home/madakie/precision_landing/build/pl_bringup/build
+[0.910s] creating /home/madakie/precision_landing/build/pl_bringup/build/lib
+[0.910s] creating /home/madakie/precision_landing/build/pl_bringup/build/lib/pl_bringup
+[0.910s] copying pl_bringup/__init__.py -> /home/madakie/precision_landing/build/pl_bringup/build/lib/pl_bringup
+[0.911s] running install
+[0.916s] running install_lib
+[0.930s] creating /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup
+[0.931s] copying /home/madakie/precision_landing/build/pl_bringup/build/lib/pl_bringup/__init__.py -> /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup
+[0.931s] byte-compiling /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup/__init__.py to __init__.cpython-312.pyc
+[0.932s] running install_data
+[0.932s] creating /home/madakie/precision_landing/install/pl_bringup/share/ament_index
+[0.932s] creating /home/madakie/precision_landing/install/pl_bringup/share/ament_index/resource_index
+[0.932s] creating /home/madakie/precision_landing/install/pl_bringup/share/ament_index/resource_index/packages
+[0.932s] copying resource/pl_bringup -> /home/madakie/precision_landing/install/pl_bringup/share/ament_index/resource_index/packages
+[0.933s] copying package.xml -> /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup
+[0.933s] creating /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/launch
+[0.933s] copying launch/camera_bridge.launch.py -> /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/launch
+[0.933s] creating /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/config
+[0.933s] copying config/gz_bridge.yaml -> /home/madakie/precision_landing/install/pl_bringup/share/pl_bringup/config
+[0.934s] running install_egg_info
+[0.950s] Copying ../../../build/pl_bringup/pl_bringup.egg-info to /home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages/pl_bringup-0.1.0-py3.12.egg-info
+[0.951s] running install_scripts
+[1.052s] writing list of installed files to '/home/madakie/precision_landing/build/pl_bringup/install.log'
+[1.075s] Invoked command in '/home/madakie/precision_landing/ros2_ws/src/pl_bringup' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/madakie/precision_landing/build/pl_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/madakie/precision_landing/install/pl_bringup/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/pl_bringup build --build-base /home/madakie/precision_landing/build/pl_bringup/build install --record /home/madakie/precision_landing/build/pl_bringup/install.log --single-version-externally-managed install_data

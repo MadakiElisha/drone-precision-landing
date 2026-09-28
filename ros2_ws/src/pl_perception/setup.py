@@ -14,11 +14,12 @@ setup(
     zip_safe=True,
     maintainer="madakie",
     maintainer_email="madakie@todo.todo",
-    description="Classical perception for precision landing",
+    description="Perception for precision landing",
     license="MIT",
     entry_points={
         "console_scripts": [
             "aruco_detector = pl_perception.aruco_detector:main",
+            "yolo_detector = pl_perception.yolo_detector:main",
         ],
     },
 )

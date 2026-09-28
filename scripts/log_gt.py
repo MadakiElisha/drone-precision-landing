@@ -18,13 +18,13 @@ with open('gt_log.csv', 'w') as f:
             buf += line
             # Match the drone pose block
             m = re.search(
-                r'sec:\s*(\d+).*?name: "x500_pl_0".*?position\s*\{(.*?)\}', 
-                buf, 
+                r'sec:\s*(\d+)\s*nsec:\s*(\d+).*?name: "x500_pl_0".*?position\s*\{(.*?)\}',
+                buf,
                 re.DOTALL
             )
             if m:
-                t = m.group(1)
-                pos_block = m.group(2)
+                t = int(m.group(1)) * 10**9 + int(m.group(2))
+                pos_block = m.group(3)
                 
                 # Protobuf sometimes omits 0.0 values, so check safely
                 x_m = re.search(r'x:\s*([-0-9.]+)', pos_block)
