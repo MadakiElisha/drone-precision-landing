@@ -19,6 +19,8 @@ class YoloDetector(Node):
         self.marker_size = self.get_parameter("marker_size").value
         
         self.K = None
+        self.ema_size = None
+        self.alpha = 0.5  # Smoothing factor
         self.fx = None
         self.fy = None
         self.cx = None
@@ -75,15 +77,23 @@ class YoloDetector(Node):
             w_bbox = x2 - x1
             h_bbox = y2 - y1
             
-            # Pinhole Depth Estimation
+            # Pinhole Depth Estimation with EMA smoothing to kill YOLO bbox jitter
+            raw_proj_size = (w_bbox + h_bbox) / 2.0
+            if self.ema_size is None:
+                self.ema_size = raw_proj_size
+                self.ema_u = u_center
+                self.ema_v = v_center
+            else:
+                self.ema_size = self.alpha * raw_proj_size + (1 - self.alpha) * self.ema_size
+                self.ema_u = self.alpha * u_center + (1 - self.alpha) * self.ema_u
+                self.ema_v = self.alpha * v_center + (1 - self.alpha) * self.ema_v
+            
             # Z = (focal_length * real_width) / projected_width
-            # We use the average of width and height for stability
-            proj_size = (w_bbox + h_bbox) / 2.0
-            z_cam = (self.fx * self.marker_size) / proj_size
+            z_cam = (self.fx * self.marker_size) / self.ema_size
             
             # X and Y offsets in camera frame (meters)
-            x_cam = (u_center - self.cx) * z_cam / self.fx
-            y_cam = (v_center - self.cy) * z_cam / self.fy
+            x_cam = (self.ema_u - self.cx) * z_cam / self.fx
+            y_cam = (self.ema_v - self.cy) * z_cam / self.fy
             
             det = Detection3D()
             hyp = ObjectHypothesisWithPose()
