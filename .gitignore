@@ -38,3 +38,5 @@ ml_training/weights/
 tools/Micro-XRCE-DDS-Agent/
 ros2_ws/src/px4_msgs/
 gt_log.csv
+dataset/
+runs/
