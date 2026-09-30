@@ -2,6 +2,12 @@
 
 Drone precision landing project.
 
+
+https://github.com/user-attachments/assets/9db95756-8852-4c58-b021-fff574487a6a
+
+<img width="1916" height="1020" alt="Screenshot 2026-09-30 145159" src="https://github.com/user-attachments/assets/c6e3f1ac-a03e-47a4-a418-d1a7f0d9b5f2" />
+
+
 ## Architecture
 - **Firmware:** PX4 v1.15.0 (External dependency at `~/PX4-Autopilot`)
 - **Simulator:** Gazebo Sim 8.11 (via ROS 2 Jazzy)
