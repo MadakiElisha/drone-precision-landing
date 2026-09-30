@@ -1,17 +1,4 @@
 #!/usr/bin/env bash
-#
-# Generate sim/worlds/<PX4_GZ_WORLD>.sdf from PX4's vendor world.
-#
-# Overlays applied:
-#   1. Inner <world name> renamed to match PX4_GZ_WORLD (gz_bridge requirement).
-#   2. Scene grid re-enabled: the vendor world sets <scene><grid>false</grid>;
-#      this flag (default true) is what draws the visual ground grid.
-#   3. Landing pad model included at (4, 0, 0.01).
-#
-# Note: We do not run `gz sdf` validation here because the standalone parser
-# cannot resolve `model://` URIs without the full Gazebo runtime environment.
-# The simulation itself validates the file successfully at runtime.
-#
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -27,20 +14,46 @@ sed -e "s|<world name=\"default\">|<world name=\"${PX4_GZ_WORLD}\">|" \
     "${BASE_WORLD}" > "${OUT_WORLD}"
 
 python3 - "${OUT_WORLD}" << 'PY'
-import sys
+import sys, os, re
 path = sys.argv[1]
+src = open(path).read()
 
-PAD_OVERLAY = """
+# 1. Dim light if requested
+light_val = os.environ.get("PL_DIM_LIGHT", "0.9")
+src = re.sub(r'(<intensity>)[\d\.]+(</intensity>)', f'\\g<1>{light_val}\\g<2>', src, count=1)
+
+# 2. Overlays
+overlays = []
+
+# Always include real pad
+overlays.append("""
     <!-- ==== Precision Landing project overlay ==== -->
     <include>
       <uri>model://landing_pad</uri>
       <pose>4 0 0.01 0 0 0</pose>
     </include>
-"""
+""")
 
-src = open(path).read()
+# Decoy
+if os.environ.get("PL_DECOY") == "1":
+    overlays.append("""
+    <include>
+      <uri>model://decoy_marker</uri>
+      <pose>5 0 0.01 0 0 0</pose>
+    </include>
+""")
+
+# Occluder
+if os.environ.get("PL_OCCLUDER") == "1":
+    overlays.append("""
+    <include>
+      <uri>model://occluder_box</uri>
+      <pose>4 0 1.5 0 0 0</pose>
+    </include>
+""")
+
 i = src.rfind("</world>")
 assert i != -1, "closing </world> tag not found"
-open(path, "w").write(src[:i] + PAD_OVERLAY + src[i:])
-print("[generate] landing pad overlay inserted:", path)
+open(path, "w").write(src[:i] + "".join(overlays) + src[i:])
+print(f"[generate] world updated: light={light_val}, decoy={'ON' if os.environ.get('PL_DECOY')=='1' else 'OFF'}, occluder={'ON' if os.environ.get('PL_OCCLUDER')=='1' else 'OFF'}")
 PY

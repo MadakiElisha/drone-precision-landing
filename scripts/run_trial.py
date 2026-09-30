@@ -149,11 +149,19 @@ def main():
     ap.add_argument("--perception", choices=["aruco", "yolo"], default="yolo")
     ap.add_argument("--offset", default="5,0")
     ap.add_argument("--trial", type=int, default=1)
+    ap.add_argument("--decoy", action="store_true")
+    ap.add_argument("--occluder", action="store_true")
+    ap.add_argument("--light", type=float, default=0.9)
     args = ap.parse_args()
 
     ox, oy = args.offset.split(",")
     env = dict(os.environ)
     env["PX4_GZ_MODEL_POSE"] = f"{ox},{oy},0.3,0,0,0"
+    current_path = env.get("GZ_SIM_RESOURCE_PATH", "")
+    env["GZ_SIM_RESOURCE_PATH"] = f"/home/madakie/precision_landing/sim/models:{current_path}"
+    env["PL_DECOY"] = "1" if args.decoy else "0"
+    env["PL_OCCLUDER"] = "1" if args.occluder else "0"
+    env["PL_DIM_LIGHT"] = str(args.light)
 
     st = os.statvfs(ROOT)
     free_gb = st.f_bavail * st.f_frsize / 1e9
@@ -161,6 +169,7 @@ def main():
         raise SystemExit(f"[trial] abort: only {free_gb:.1f} GB free")
 
     TRACE = open(f"{ROOT}/trial_trace.log", "w")
+    subprocess.run(["./sim/worlds/generate_world.sh"], cwd=ROOT, env=env, check=True)
     sim = subprocess.Popen(["./run_sim.sh"], cwd=ROOT, env=env,
                            stdin=subprocess.PIPE,
                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -227,11 +236,13 @@ def main():
     with open(f"{ROOT}/results.csv", "a", newline="") as f:
         w = csv.writer(f)
         if os.path.getsize(f"{ROOT}/results.csv") == 0:
-            w.writerow(["ts", "perception", "trial", "offset",
+            w.writerow(["ts", "perception", "trial", "offset", "config",
                         "err_x_cm", "err_y_cm", "err_radial_cm",
                         "success", "wall_s"])
         w.writerow([int(time.time()), args.perception, args.trial,
-                    args.offset, f"{ex:.2f}", f"{ey:.2f}", f"{er:.2f}",
+                    args.offset,
+                    f"d={int(args.decoy)}_o={int(args.occluder)}_l={args.light:.1f}",
+                    f"{ex:.2f}", f"{ey:.2f}", f"{er:.2f}",
                     success, f"{wall:.0f}"])
     print(f"[trial] {args.perception} #{args.trial} offset=({ox},{oy}) "
           f"success={success} radial={er:.2f} cm wall={wall:.0f}s", flush=True)
