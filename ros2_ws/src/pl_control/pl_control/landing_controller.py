@@ -65,8 +65,11 @@ class LandingController(Node):
             reliability=ReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
         )
+        self.declare_parameter("tags_topic", "/pl/perception/tags_est")
+        topic = self.get_parameter("tags_topic").value
+        self.get_logger().info(f"Subscribing to tags topic: {topic}")
         self.sub = self.create_subscription(
-            Detection3DArray, "/pl/perception/tags", self.det_cb, 10)
+            Detection3DArray, topic, self.det_cb, 10)
         self.sub_pos = self.create_subscription(
             VehicleLocalPosition, "/fmu/out/vehicle_local_position",
             self.pos_cb, qos)

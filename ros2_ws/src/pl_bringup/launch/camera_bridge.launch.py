@@ -36,14 +36,21 @@ def generate_launch_description():
         output="screen",
         condition=IfCondition(use_yolo),
     )
+    estimator = Node(
+        package="pl_perception",
+        executable="tag_estimator",
+        name="tag_estimator",
+        output="screen",
+    )
     control = Node(
         package="pl_control",
         executable="landing_controller",
         name="landing_controller",
-        parameters=[{"allow_descent": True}],
+        parameters=[{"allow_descent": True},
+                    {"tags_topic": "/pl/perception/tags_est"}],
         output="screen",
     )
     return LaunchDescription([
         DeclareLaunchArgument("use_yolo", default_value="true"),
-        bridge, aruco, yolo, control,
+        bridge, aruco, yolo, estimator, control,
     ])

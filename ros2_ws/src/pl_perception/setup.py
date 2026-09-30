@@ -20,6 +20,7 @@ setup(
         "console_scripts": [
             "aruco_detector = pl_perception.aruco_detector:main",
             "yolo_detector = pl_perception.yolo_detector:main",
+            "tag_estimator = pl_perception.tag_estimator:main",
         ],
     },
 )

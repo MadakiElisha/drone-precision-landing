@@ -19,6 +19,7 @@ class YoloDetector(Node):
         self.marker_size = self.get_parameter("marker_size").value
         
         self.K = None
+        self.err_count = 0
         self.ema_size = None
         self.alpha = 0.5  # Smoothing factor
         self.fx = None
@@ -52,6 +53,15 @@ class YoloDetector(Node):
         return None
 
     def img_cb(self, msg):
+        try:
+            self._process(msg)
+        except Exception as e:
+            self.err_count += 1
+            if self.err_count % 50 == 1:
+                self.get_logger().warn(
+                    f"frame skipped (count={self.err_count}): {e!r}")
+
+    def _process(self, msg):
         if self.fx is None:
             return
         img = self._to_bgr(msg)

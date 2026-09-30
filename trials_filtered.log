@@ -1,0 +1,98 @@
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] aruco #6 offset=(5,0) success=True radial=7.36 cm wall=123s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] aruco #7 offset=(5,0) success=True radial=5.92 cm wall=90s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 2
+[trial] nav_state -> 14
+[trial] TIMEOUT: disarm
+[trial] aruco #8 offset=(5,0) success=False radial=129.67 cm wall=360s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] aruco #9 offset=(5,0) success=True radial=10.56 cm wall=85s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] aruco #10 offset=(5,0) success=True radial=16.18 cm wall=155s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] yolo #6 offset=(5,0) success=True radial=6.56 cm wall=115s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] yolo #7 offset=(5,0) success=True radial=46.38 cm wall=139s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] yolo #8 offset=(5,0) success=True radial=16.00 cm wall=105s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 14
+[trial] nav_state -> 18
+[trial] nav_state -> 14
+[trial] arming_state -> 1
+[trial] yolo #9 offset=(5,0) success=True radial=34.94 cm wall=163s
+[trial] NAV_OFFBOARD=14
+[trial] nav_state -> 4
+[trial] arming_state -> 1
+[trial] nav_state -> 17
+[trial] arming_state -> 2
+[trial] nav_state -> 12
+[trial] TIMEOUT: climb
+[trial] yolo #10 offset=(5,0) success=False radial=147.01 cm wall=157s

@@ -8,6 +8,7 @@ import argparse
 import csv
 import os
 import subprocess
+import threading
 import sys
 import time
 
@@ -15,6 +16,24 @@ import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from px4_msgs.msg import VehicleCommand, VehicleLocalPosition, VehicleStatus
+
+
+CAP_BYTES = 25 * 1024 * 1024
+
+
+def _drain(pipe, path):
+    """Drain a child pipe into a size-capped file. A spamming child
+    (PX4 timesync warnings) can never fill the disk again; the pipe
+    keeps draining so the child never blocks."""
+    written = 0
+    with open(path, "wb") as f:
+        for chunk in iter(lambda: pipe.read(65536), b""):
+            if written < CAP_BYTES:
+                n = min(len(chunk), CAP_BYTES - written)
+                f.write(chunk[:n])
+                f.flush()
+                written += n
+
 
 ROOT = "/home/madakie/precision_landing"
 NAV_OFFBOARD = getattr(VehicleStatus, "NAVIGATION_STATE_OFFBOARD", 14)
@@ -136,19 +155,28 @@ def main():
     env = dict(os.environ)
     env["PX4_GZ_MODEL_POSE"] = f"{ox},{oy},0.3,0,0,0"
 
+    st = os.statvfs(ROOT)
+    free_gb = st.f_bavail * st.f_frsize / 1e9
+    if free_gb < 5:
+        raise SystemExit(f"[trial] abort: only {free_gb:.1f} GB free")
+
     TRACE = open(f"{ROOT}/trial_trace.log", "w")
-    sim_log = open(f"{ROOT}/trial_sim.log", "w")
-    ros_log = open(f"{ROOT}/trial_ros.log", "w")
     sim = subprocess.Popen(["./run_sim.sh"], cwd=ROOT, env=env,
                            stdin=subprocess.PIPE,
-                           stdout=sim_log, stderr=subprocess.STDOUT)
+                           stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    threading.Thread(target=_drain,
+                     args=(sim.stdout, f"{ROOT}/trial_sim.log"),
+                     daemon=True).start()
     time.sleep(5)
     loggt = subprocess.Popen([sys.executable, "scripts/log_gt.py"], cwd=ROOT,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     launch = subprocess.Popen(
         ["ros2", "launch", "pl_bringup", "camera_bridge.launch.py",
          f"use_yolo:={'true' if args.perception == 'yolo' else 'false'}"],
-        cwd=ROOT, env=env, stdout=ros_log, stderr=subprocess.STDOUT)
+        cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    threading.Thread(target=_drain,
+                     args=(launch.stdout, f"{ROOT}/trial_ros.log"),
+                     daemon=True).start()
 
     print(f"[trial] NAV_OFFBOARD={NAV_OFFBOARD}", flush=True)
     rclpy.init()
@@ -190,8 +218,6 @@ def main():
         subprocess.run(["pkill", "-f", "gz gui"], capture_output=True)
         subprocess.run(["pkill", "-f", "gz sim"], capture_output=True)
         TRACE.close()
-        sim_log.close()
-        ros_log.close()
         node.destroy_node()
         try:
             rclpy.shutdown()
