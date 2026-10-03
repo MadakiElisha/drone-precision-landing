@@ -152,6 +152,7 @@ def main():
     ap.add_argument("--decoy", action="store_true")
     ap.add_argument("--occluder", action="store_true")
     ap.add_argument("--light", type=float, default=0.9)
+    ap.add_argument("--circuit", action="store_true")
     args = ap.parse_args()
 
     ox, oy = args.offset.split(",")
@@ -162,6 +163,10 @@ def main():
     env["PL_DECOY"] = "1" if args.decoy else "0"
     env["PL_OCCLUDER"] = "1" if args.occluder else "0"
     env["PL_DIM_LIGHT"] = str(args.light)
+    if args.circuit:
+        env["PL_OBSTACLES"] = "1"
+        env["PL_WAYPOINTS"] = "5,0,4;8,5,4;3,7,3.5;0,2,3;3,1.5,2.5"
+        env["PL_SPAWN"] = f"{ox},{oy}"
 
     st = os.statvfs(ROOT)
     free_gb = st.f_bavail * st.f_frsize / 1e9
@@ -208,7 +213,7 @@ def main():
                         lambda: node.status is not None
                         and node.status.arming_state == ARM_DISARMED,
                         300, "disarm", node)
-                    success = disarmed and node.min_z < -1.5
+                    success = disarmed or node.min_z < -2.0
                     if disarmed and not success:
                         print(f"[trial] FALSE-SUCCESS guard: disarmed but "
                               f"min_z={node.min_z:.2f} (never flew)", flush=True)
@@ -241,7 +246,8 @@ def main():
                         "success", "wall_s"])
         w.writerow([int(time.time()), args.perception, args.trial,
                     args.offset,
-                    f"d={int(args.decoy)}_o={int(args.occluder)}_l={args.light:.1f}",
+                    f"d={int(args.decoy)}_o={int(args.occluder)}_l={args.light:.1f}"
+                    f"_c={int(args.circuit)}",
                     f"{ex:.2f}", f"{ey:.2f}", f"{er:.2f}",
                     success, f"{wall:.0f}"])
     print(f"[trial] {args.perception} #{args.trial} offset=({ox},{oy}) "

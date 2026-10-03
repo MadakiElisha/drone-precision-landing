@@ -1,3 +1,5 @@
+import os
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.conditions import IfCondition, UnlessCondition
@@ -47,7 +49,9 @@ def generate_launch_description():
         executable="landing_controller",
         name="landing_controller",
         parameters=[{"allow_descent": True},
-                    {"tags_topic": "/pl/perception/tags_est"}],
+                    {"tags_topic": "/pl/perception/tags_est"},
+                    {"waypoints": os.environ.get("PL_WAYPOINTS", "")},
+                    {"spawn": os.environ.get("PL_SPAWN", "0,0")}],
         output="screen",
     )
     return LaunchDescription([

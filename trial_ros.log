@@ -1,406 +1,655 @@
-[INFO] [launch]: All log files can be found below /home/madakie/.ros/log/2026-09-30-13-16-40-985132-FPVLAB3-4700
+[INFO] [launch]: All log files can be found below /home/madakie/.ros/log/2026-10-03-14-15-27-212356-FPVLAB3-7498
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [parameter_bridge-1]: process started with pid [4726]
-[INFO] [yolo_detector-2]: process started with pid [4727]
-[INFO] [tag_estimator-3]: process started with pid [4728]
-[INFO] [landing_controller-4]: process started with pid [4729]
-[parameter_bridge-1] [INFO] [1790770601.259425224] [gz_camera_bridge]: Creating GZ->ROS Bridge: [/downward_camera (gz.msgs.Image) -> /downward_camera (sensor_msgs/msg/Image)] (Lazy 0)
-[parameter_bridge-1] [INFO] [1790770601.262306907] [gz_camera_bridge]: Creating GZ->ROS Bridge: [/camera_info (gz.msgs.CameraInfo) -> /camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
-[landing_controller-4] [INFO] [1790770601.651736897] [landing_controller]: Subscribing to tags topic: /pl/perception/tags_est
-[tag_estimator-3] [INFO] [1790770601.811484516] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770601.854637703] [landing_controller]: climb complete: entering TRACK
-[landing_controller-4] [INFO] [1790770601.855532068] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[landing_controller-4] [INFO] [1790770602.004557258] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770602.040815344] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770603.004589803] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770603.040639327] [tag_estimator]: est age=9.90s alpha=0.2
-[yolo_detector-2] [INFO] [1790770603.347916241] [yolo_detector]: Loading YOLO model...
-[yolo_detector-2] [INFO] [1790770603.395746406] [yolo_detector]: Model loaded.
-[landing_controller-4] [INFO] [1790770604.004619139] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770604.040847338] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770605.005356352] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770605.040834087] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770606.004756649] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770606.041182720] [tag_estimator]: est age=9.90s alpha=0.2
-[tag_estimator-3] [INFO] [1790770609.230834622] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770609.231175507] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[landing_controller-4] [INFO] [1790770610.005138720] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770610.041271681] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770611.006084730] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770611.041452093] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770612.006715634] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770612.041692897] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770613.006000303] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770613.041695110] [tag_estimator]: est age=9.90s alpha=0.2
-[landing_controller-4] [INFO] [1790770614.005608629] [landing_controller]: state=TRACK opt=(-0.20,-0.20,1.04) tgt=--.-- yaw=+0 cmd_ned=(+0.10,-0.10,+0.00)
-[tag_estimator-3] [INFO] [1790770614.045342193] [tag_estimator]: est age=0.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770615.007492825] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770615.043330293] [tag_estimator]: est age=1.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770616.005850521] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770616.046359677] [tag_estimator]: est age=2.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770617.006471255] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770617.041364087] [tag_estimator]: est age=3.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770618.012446293] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770618.042272731] [tag_estimator]: est age=4.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770619.005714533] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770619.043804413] [tag_estimator]: est age=5.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770620.017270628] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770620.041896488] [tag_estimator]: est age=6.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770621.009364220] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770621.041771153] [tag_estimator]: est age=7.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770622.005798697] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770622.044954926] [tag_estimator]: est age=8.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770623.008283810] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770623.041281960] [tag_estimator]: est age=9.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770624.006062056] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770624.041141815] [tag_estimator]: est age=10.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770625.005195961] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770625.041535810] [tag_estimator]: est age=11.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770626.013884424] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770626.044064401] [tag_estimator]: est age=12.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770627.005831723] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770627.041237408] [tag_estimator]: est age=13.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770628.006030030] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770628.041350648] [tag_estimator]: est age=14.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770629.006686271] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770629.041785013] [tag_estimator]: est age=15.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770630.010677484] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770630.041336578] [tag_estimator]: est age=16.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770631.009865289] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770631.041376860] [tag_estimator]: est age=17.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770632.007372707] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770632.041382900] [tag_estimator]: est age=18.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770633.011651367] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770633.041094043] [tag_estimator]: est age=19.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770634.006081848] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770634.041429411] [tag_estimator]: est age=20.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770635.005471164] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770635.043697115] [tag_estimator]: est age=21.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770636.005993176] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770636.043786776] [tag_estimator]: est age=22.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770637.006143508] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770637.041373735] [tag_estimator]: est age=23.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770638.006164633] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770638.042905957] [tag_estimator]: est age=24.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770639.005710496] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770639.043873969] [tag_estimator]: est age=25.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770640.005940126] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770640.041387507] [tag_estimator]: est age=26.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770641.005623808] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770641.041955360] [tag_estimator]: est age=27.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770644.411269236] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770644.412581159] [tag_estimator]: est age=30.83s alpha=0.2
-[landing_controller-4] [INFO] [1790770645.005984990] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770645.041484839] [tag_estimator]: est age=31.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770646.010300032] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770646.041682667] [tag_estimator]: est age=32.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770647.005521302] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770647.041360929] [tag_estimator]: est age=33.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770648.005802144] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770648.041750384] [tag_estimator]: est age=34.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770649.008163386] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770649.041166974] [tag_estimator]: est age=35.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770650.005966066] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770650.041390128] [tag_estimator]: est age=36.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770651.005424054] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770651.041497365] [tag_estimator]: est age=37.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770652.005528284] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770652.041690430] [tag_estimator]: est age=38.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770653.005373375] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770653.041786736] [tag_estimator]: est age=39.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770654.005971542] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770654.041786781] [tag_estimator]: est age=40.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770655.005821153] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770655.042358321] [tag_estimator]: est age=41.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770656.009086624] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770656.041625912] [tag_estimator]: est age=42.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770657.006203480] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770657.041618104] [tag_estimator]: est age=43.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770658.005985818] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770658.041915328] [tag_estimator]: est age=44.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770659.011119013] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770659.042356168] [tag_estimator]: est age=45.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770660.006934758] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770660.041827099] [tag_estimator]: est age=46.46s alpha=0.2
-[tag_estimator-3] [INFO] [1790770661.004535294] [tag_estimator]: est age=47.42s alpha=0.2
-[landing_controller-4] [INFO] [1790770661.007657487] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[landing_controller-4] [INFO] [1790770662.005798109] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770662.041790951] [tag_estimator]: est age=48.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770663.005937217] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770663.045247121] [tag_estimator]: est age=49.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770664.005844898] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770664.041387116] [tag_estimator]: est age=50.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770665.005924158] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770665.041458713] [tag_estimator]: est age=51.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770666.006011678] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770666.041578126] [tag_estimator]: est age=52.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770667.006084731] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770667.041157923] [tag_estimator]: est age=53.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770668.006142344] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770668.045238793] [tag_estimator]: est age=54.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770669.005729717] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770669.041395920] [tag_estimator]: est age=55.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770670.005867165] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770670.041363577] [tag_estimator]: est age=56.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770671.006232428] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770671.042201291] [tag_estimator]: est age=57.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770672.005845816] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770672.045123192] [tag_estimator]: est age=58.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770673.006105283] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770673.041699106] [tag_estimator]: est age=59.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770674.005415669] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770674.041666927] [tag_estimator]: est age=60.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770675.007056521] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770675.044428649] [tag_estimator]: est age=61.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770676.005864747] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770676.045018050] [tag_estimator]: est age=62.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770679.593751733] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770679.594572342] [tag_estimator]: est age=66.01s alpha=0.2
-[landing_controller-4] [INFO] [1790770680.006282538] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770680.041457750] [tag_estimator]: est age=66.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770681.005976180] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770681.041494409] [tag_estimator]: est age=67.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770682.005925651] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770682.041638082] [tag_estimator]: est age=68.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770683.006042550] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770683.041255168] [tag_estimator]: est age=69.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770684.005474604] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770684.041485564] [tag_estimator]: est age=70.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770685.005727239] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770685.041418363] [tag_estimator]: est age=71.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770686.005889589] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770686.041314149] [tag_estimator]: est age=72.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770687.005984586] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770687.041658359] [tag_estimator]: est age=73.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770688.005845582] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770688.041403321] [tag_estimator]: est age=74.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770689.006264911] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770689.041810498] [tag_estimator]: est age=75.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770690.005997907] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770690.041515588] [tag_estimator]: est age=76.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770691.005791920] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770691.041649651] [tag_estimator]: est age=77.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770692.007310971] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770692.041104831] [tag_estimator]: est age=78.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770693.005735620] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770693.042850868] [tag_estimator]: est age=79.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770694.011392058] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770694.043012625] [tag_estimator]: est age=80.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770695.012848884] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770695.041687782] [tag_estimator]: est age=81.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770696.006218868] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770696.043443424] [tag_estimator]: est age=82.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770697.005678667] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770697.041145273] [tag_estimator]: est age=83.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770698.007232482] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770698.041604570] [tag_estimator]: est age=84.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770699.005845667] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770699.042068338] [tag_estimator]: est age=85.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770700.009544072] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770700.041868912] [tag_estimator]: est age=86.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770701.005851792] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770701.041875107] [tag_estimator]: est age=87.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770702.006592975] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770702.042578559] [tag_estimator]: est age=88.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770703.005472946] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770703.041297225] [tag_estimator]: est age=89.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770704.005364286] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770704.041559242] [tag_estimator]: est age=90.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770705.011282814] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770705.044782248] [tag_estimator]: est age=91.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770706.005656013] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770706.041597666] [tag_estimator]: est age=92.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770707.005924098] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770707.042916456] [tag_estimator]: est age=93.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770708.007727223] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770708.041377687] [tag_estimator]: est age=94.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770709.005744266] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770709.041626188] [tag_estimator]: est age=95.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770710.006098281] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770710.042810866] [tag_estimator]: est age=96.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770711.007511045] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770711.042108415] [tag_estimator]: est age=97.46s alpha=0.2
-[tag_estimator-3] [INFO] [1790770714.772385889] [tag_estimator]: est age=101.19s alpha=0.2
-[landing_controller-4] [INFO] [1790770714.772907783] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[landing_controller-4] [INFO] [1790770715.005827590] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770715.041774075] [tag_estimator]: est age=101.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770716.005723778] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770716.044900888] [tag_estimator]: est age=102.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770717.006070499] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770717.044951333] [tag_estimator]: est age=103.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770718.005780884] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770718.041126678] [tag_estimator]: est age=104.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770719.005404601] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770719.041147618] [tag_estimator]: est age=105.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770720.006031012] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770720.041863034] [tag_estimator]: est age=106.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770721.005735303] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770721.041563424] [tag_estimator]: est age=107.46s alpha=0.2
-[tag_estimator-3] [INFO] [1790770722.001807083] [tag_estimator]: est age=108.42s alpha=0.2
-[landing_controller-4] [INFO] [1790770722.006818427] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[landing_controller-4] [INFO] [1790770723.005721806] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770723.041319360] [tag_estimator]: est age=109.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770724.005966902] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770724.041349464] [tag_estimator]: est age=110.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770725.009567388] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770725.041513427] [tag_estimator]: est age=111.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770726.006127000] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770726.041350532] [tag_estimator]: est age=112.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770727.005890964] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770727.041261402] [tag_estimator]: est age=113.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770728.006912891] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770728.042386699] [tag_estimator]: est age=114.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770729.006189608] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770729.041578559] [tag_estimator]: est age=115.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770730.010131376] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770730.044021302] [tag_estimator]: est age=116.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770731.005581424] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770731.042302448] [tag_estimator]: est age=117.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770732.006069488] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770732.041736215] [tag_estimator]: est age=118.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770733.008012353] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770733.044804998] [tag_estimator]: est age=119.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770734.006515411] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770734.045015435] [tag_estimator]: est age=120.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770735.005489395] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770735.044799282] [tag_estimator]: est age=121.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770736.005949760] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770736.042349987] [tag_estimator]: est age=122.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770737.005459038] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770737.042949166] [tag_estimator]: est age=123.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770738.006045287] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770738.041362434] [tag_estimator]: est age=124.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770739.009085524] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770739.041461202] [tag_estimator]: est age=125.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770740.011592005] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770740.041449339] [tag_estimator]: est age=126.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770741.005316750] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770741.041640348] [tag_estimator]: est age=127.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770742.005631435] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770742.041033990] [tag_estimator]: est age=128.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770743.007192049] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770743.041918088] [tag_estimator]: est age=129.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770744.008839416] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770744.041408739] [tag_estimator]: est age=130.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770745.006438396] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770745.041966047] [tag_estimator]: est age=131.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770746.006967827] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770746.042276745] [tag_estimator]: est age=132.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770747.005980489] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770747.041685812] [tag_estimator]: est age=133.46s alpha=0.2
-[tag_estimator-3] [INFO] [1790770749.649125483] [tag_estimator]: est age=136.06s alpha=0.2
-[landing_controller-4] [INFO] [1790770749.650799727] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[landing_controller-4] [INFO] [1790770750.006688301] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770750.041795028] [tag_estimator]: est age=136.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770751.005660175] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770751.041390622] [tag_estimator]: est age=137.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770752.013239091] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770752.045586720] [tag_estimator]: est age=138.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770753.006072788] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770753.041364776] [tag_estimator]: est age=139.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770754.005922767] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770754.041648847] [tag_estimator]: est age=140.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770755.006552722] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770755.045971861] [tag_estimator]: est age=141.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770756.005603124] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770756.041790143] [tag_estimator]: est age=142.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770757.005179593] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770757.041933497] [tag_estimator]: est age=143.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770758.005094351] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770758.041416137] [tag_estimator]: est age=144.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770759.012719672] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770759.043130264] [tag_estimator]: est age=145.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770760.008101249] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770760.042816100] [tag_estimator]: est age=146.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770761.006266684] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770761.042619142] [tag_estimator]: est age=147.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770762.005932463] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770762.041628618] [tag_estimator]: est age=148.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770763.005804829] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770763.041710617] [tag_estimator]: est age=149.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770764.005799795] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770764.041138807] [tag_estimator]: est age=150.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770765.007196298] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770765.041671794] [tag_estimator]: est age=151.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770766.009820033] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770766.052961923] [tag_estimator]: est age=152.47s alpha=0.2
-[landing_controller-4] [INFO] [1790770767.007598831] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770767.041854973] [tag_estimator]: est age=153.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770768.006148035] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770768.041690224] [tag_estimator]: est age=154.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770769.005807355] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770769.041510893] [tag_estimator]: est age=155.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770770.006393042] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770770.041789185] [tag_estimator]: est age=156.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770771.005798027] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770771.041321754] [tag_estimator]: est age=157.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770772.005664268] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770772.041697748] [tag_estimator]: est age=158.46s alpha=0.2
+[INFO] [parameter_bridge-1]: process started with pid [7527]
+[INFO] [yolo_detector-2]: process started with pid [7528]
+[INFO] [tag_estimator-3]: process started with pid [7529]
+[INFO] [landing_controller-4]: process started with pid [7530]
+[parameter_bridge-1] [INFO] [1791033327.531053181] [gz_camera_bridge]: Creating GZ->ROS Bridge: [/downward_camera (gz.msgs.Image) -> /downward_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-1] [INFO] [1791033327.533639414] [gz_camera_bridge]: Creating GZ->ROS Bridge: [/camera_info (gz.msgs.CameraInfo) -> /camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[landing_controller-4] [INFO] [1791033327.962648717] [landing_controller]: Subscribing to tags topic: /pl/perception/tags_est
+[tag_estimator-3] [INFO] [1791033328.019695885] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033328.056795883] [landing_controller]: circuit: 5 local waypoints (spawn=5.0,0.0)
+[landing_controller-4] [INFO] [1791033328.107430266] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033329.001617499] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033329.007466967] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[yolo_detector-2] [INFO] [1791033329.417567660] [yolo_detector]: Loading YOLO model...
+[yolo_detector-2] [INFO] [1791033329.452544769] [yolo_detector]: Model loaded.
+[tag_estimator-3] [INFO] [1791033330.002427844] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033330.007903433] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033331.002133820] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033331.008529021] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033332.002567871] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033332.008601487] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033333.002246846] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033333.007785483] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033334.002323236] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033334.008654236] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033335.002821104] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033335.009922331] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033336.003244461] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033336.009214875] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033337.003016509] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033337.009489144] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033338.003260647] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033338.009277573] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033339.007278746] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033339.008863893] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033340.016383653] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033340.020051127] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033341.004382608] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033341.008828203] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033342.002094852] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033342.008883596] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033343.002128582] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033343.009385312] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033344.003117315] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033344.014238060] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033345.002527876] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033345.008887298] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033346.007010276] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033346.011028035] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033347.004819854] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033347.009174238] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033348.003019282] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033348.008712551] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033349.004357773] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033349.009257935] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033350.009571288] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033350.012047160] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033351.010866726] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033351.015325166] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033352.002354183] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033352.010083126] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033353.006895686] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033353.009063141] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033354.009721844] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033354.010999638] [tag_estimator]: est age=9.90s alpha=0.2
+[tag_estimator-3] [INFO] [1791033355.002321858] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033355.009468698] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033356.010344481] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033356.012229904] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033357.002716343] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033357.012574756] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033358.007922415] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033358.017134564] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033359.002953388] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033359.009620086] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033360.002156826] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033360.009338704] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033361.002561273] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033361.008717509] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033362.003869049] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033362.011195509] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033363.003939834] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033363.008834411] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033364.002478877] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033364.010106748] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033365.007807655] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033365.013743398] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033366.002316075] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033366.008992898] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033367.003966312] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033367.010622647] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033368.002339830] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033368.009289875] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033369.003768379] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033369.014799605] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033370.002549592] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033370.008412645] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033371.002102185] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033371.008845079] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033372.003307118] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033372.009174493] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033373.002290567] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033373.011693474] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033374.002262497] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033374.009059862] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033375.001911746] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033375.008810448] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033376.002434461] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033376.011209448] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033377.001899401] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033377.008657304] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033378.003315797] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033378.011123446] [landing_controller]: state=CLIMB nav=0 opt=NONE tgt=--.-- yaw=+0 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033379.003637065] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033379.010029627] [landing_controller]: state=CLIMB nav=4 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033380.003808911] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033380.009720038] [landing_controller]: state=CLIMB nav=4 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033381.002477403] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033381.008462250] [landing_controller]: state=CLIMB nav=4 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033382.002585861] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033382.009793144] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033383.003634738] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033383.013676040] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033384.003890999] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033384.009425163] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033385.005952442] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033385.008807551] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033386.002637531] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033386.009137509] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033387.004176419] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033387.012599498] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033388.003593723] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033388.008501543] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033389.002643216] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033389.013480418] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033390.004636101] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033390.009135166] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033391.002575333] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033391.023136313] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033392.001934713] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033392.009844808] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033393.002705533] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033393.009247075] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033394.002545334] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033394.008175557] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033395.002258706] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033395.009200192] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033396.001854388] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033396.008645346] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033397.002514226] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033397.009366254] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033398.003084109] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033398.008485416] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033399.006734838] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033399.009273358] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033400.002246985] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033400.012165047] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033401.002145627] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033401.013591007] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033402.002973523] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033402.008769574] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033403.002160322] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033403.011304392] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033404.002672349] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033404.009450789] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033405.004334863] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033405.013299458] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033406.003769963] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033406.008641298] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033407.002936245] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033407.008388127] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033408.002788443] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033408.009224803] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033409.002518666] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033409.008465964] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033410.001951589] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033410.009935299] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033411.002339358] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033411.009051016] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033412.002651967] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033412.009066690] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033413.001775736] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033413.010428336] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033414.002309790] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033414.008882138] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033415.002587612] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033415.013311874] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033416.002147823] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033416.008799867] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033417.004488105] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033417.009199219] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033418.002678502] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033418.009064439] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033419.002211445] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033419.009339461] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033420.002978655] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033420.013257862] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033421.002281542] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033421.009131586] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033422.002625499] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033422.009336063] [landing_controller]: state=CLIMB nav=17 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033423.002494711] [tag_estimator]: est age=9.90s alpha=0.2
+[landing_controller-4] [INFO] [1791033423.009958244] [landing_controller]: state=CLIMB nav=14 opt=NONE tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033424.002489620] [tag_estimator]: est age=0.24s alpha=0.2
+[landing_controller-4] [INFO] [1791033424.009384398] [landing_controller]: state=CLIMB nav=14 opt=(+0.03,+1.41,2.33) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033425.002607517] [tag_estimator]: est age=0.19s alpha=0.2
+[landing_controller-4] [INFO] [1791033425.009945518] [landing_controller]: state=CLIMB nav=14 opt=(+0.05,+1.28,2.18) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033426.002109255] [tag_estimator]: est age=0.06s alpha=0.2
+[landing_controller-4] [INFO] [1791033426.009298895] [landing_controller]: state=CLIMB nav=14 opt=(+0.06,+1.18,2.07) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033427.002988128] [tag_estimator]: est age=0.02s alpha=0.2
+[landing_controller-4] [INFO] [1791033427.012503893] [landing_controller]: state=CLIMB nav=14 opt=(+0.07,+1.12,2.00) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[tag_estimator-3] [INFO] [1791033428.002658108] [tag_estimator]: est age=0.08s alpha=0.2
+[landing_controller-4] [INFO] [1791033428.009197391] [landing_controller]: state=CLIMB nav=14 opt=(+0.08,+1.07,1.94) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.60) stall=0
+[landing_controller-4] [INFO] [1791033428.361924994] [landing_controller]: climb complete: entering WAYPOINT
+[tag_estimator-3] [INFO] [1791033429.002317617] [tag_estimator]: est age=0.00s alpha=0.2
+[landing_controller-4] [INFO] [1791033429.009144293] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.09,+1.00,1.87) tgt=--.-- yaw=+2 cmd=(-0.10,-0.08,-1.00) stall=0
+[tag_estimator-3] [INFO] [1791033430.002583649] [tag_estimator]: est age=0.14s alpha=0.2
+[landing_controller-4] [INFO] [1791033430.009333378] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.09,+0.98,1.84) tgt=--.-- yaw=+2 cmd=(-0.11,-0.07,-1.00) stall=0
+[tag_estimator-3] [INFO] [1791033431.002272684] [tag_estimator]: est age=0.09s alpha=0.2
+[landing_controller-4] [INFO] [1791033431.009298260] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.11,+0.95,1.82) tgt=--.-- yaw=+2 cmd=(-0.11,-0.06,-0.99) stall=0
+[tag_estimator-3] [INFO] [1791033432.003016691] [tag_estimator]: est age=0.02s alpha=0.2
+[landing_controller-4] [INFO] [1791033432.016386347] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.11,+0.91,1.85) tgt=--.-- yaw=+2 cmd=(-0.11,-0.05,-0.88) stall=0
+[tag_estimator-3] [INFO] [1791033433.002766290] [tag_estimator]: est age=0.09s alpha=0.2
+[landing_controller-4] [INFO] [1791033433.009599501] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.10,+0.89,1.95) tgt=--.-- yaw=+2 cmd=(-0.11,-0.03,-0.76) stall=0
+[tag_estimator-3] [INFO] [1791033434.002132779] [tag_estimator]: est age=0.08s alpha=0.2
+[landing_controller-4] [INFO] [1791033434.009338180] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.09,+0.87,2.10) tgt=--.-- yaw=+2 cmd=(-0.10,-0.01,-0.65) stall=0
+[tag_estimator-3] [INFO] [1791033435.002481387] [tag_estimator]: est age=0.19s alpha=0.2
+[landing_controller-4] [INFO] [1791033435.009509877] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.09,+0.85,2.20) tgt=--.-- yaw=+2 cmd=(-0.08,-0.00,-0.57) stall=0
+[tag_estimator-3] [INFO] [1791033436.002435381] [tag_estimator]: est age=0.34s alpha=0.2
+[landing_controller-4] [INFO] [1791033436.009647107] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.07,+0.83,2.30) tgt=--.-- yaw=+2 cmd=(-0.07,+0.01,-0.50) stall=0
+[tag_estimator-3] [INFO] [1791033437.002622042] [tag_estimator]: est age=0.19s alpha=0.2
+[landing_controller-4] [INFO] [1791033437.010114452] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.05,+0.81,2.39) tgt=--.-- yaw=+2 cmd=(-0.06,+0.01,-0.45) stall=0
+[tag_estimator-3] [INFO] [1791033438.003609835] [tag_estimator]: est age=0.10s alpha=0.2
+[landing_controller-4] [INFO] [1791033438.008934969] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.04,+0.80,2.46) tgt=--.-- yaw=+2 cmd=(-0.05,+0.02,-0.42) stall=0
+[landing_controller-4] [INFO] [1791033438.359568012] [landing_controller]: waypoint 1/5 reached
+[tag_estimator-3] [INFO] [1791033439.006967598] [tag_estimator]: est age=0.10s alpha=0.2
+[landing_controller-4] [INFO] [1791033439.010041806] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.02,+0.79,2.54) tgt=--.-- yaw=+2 cmd=(+1.01,+1.72,-0.16) stall=0
+[tag_estimator-3] [INFO] [1791033440.004975593] [tag_estimator]: est age=0.03s alpha=0.2
+[landing_controller-4] [INFO] [1791033440.009226519] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.07,+0.65,2.64) tgt=--.-- yaw=+2 cmd=(+1.01,+1.72,-0.15) stall=0
+[tag_estimator-3] [INFO] [1791033441.002122658] [tag_estimator]: est age=0.13s alpha=0.2
+[landing_controller-4] [INFO] [1791033441.008623532] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.33,+0.30,2.74) tgt=--.-- yaw=+2 cmd=(+1.01,+1.72,-0.14) stall=0
+[tag_estimator-3] [INFO] [1791033442.003313760] [tag_estimator]: est age=0.16s alpha=0.2
+[landing_controller-4] [INFO] [1791033442.009963591] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.34,+0.32,2.80) tgt=--.-- yaw=+2 cmd=(+1.02,+1.72,-0.15) stall=0
+[tag_estimator-3] [INFO] [1791033443.003743806] [tag_estimator]: est age=0.07s alpha=0.2
+[landing_controller-4] [INFO] [1791033443.013512576] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.20,+0.52,2.85) tgt=--.-- yaw=+2 cmd=(+1.02,+1.72,-0.16) stall=0
+[tag_estimator-3] [INFO] [1791033444.005446242] [tag_estimator]: est age=0.21s alpha=0.2
+[landing_controller-4] [INFO] [1791033444.008882760] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.04,+0.78,2.87) tgt=--.-- yaw=+2 cmd=(+1.01,+1.72,-0.17) stall=0
+[tag_estimator-3] [INFO] [1791033445.007485496] [tag_estimator]: est age=0.24s alpha=0.2
+[landing_controller-4] [INFO] [1791033445.013321617] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.17,+1.11,2.88) tgt=--.-- yaw=+2 cmd=(+1.00,+1.72,-0.17) stall=0
+[tag_estimator-3] [INFO] [1791033446.002543198] [tag_estimator]: est age=0.04s alpha=0.2
+[landing_controller-4] [INFO] [1791033446.008392921] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.41,+1.45,2.94) tgt=--.-- yaw=+2 cmd=(+0.99,+1.73,-0.17) stall=0
+[tag_estimator-3] [INFO] [1791033447.003027571] [tag_estimator]: est age=0.37s alpha=0.2
+[landing_controller-4] [INFO] [1791033447.008697571] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.58,+1.74,3.21) tgt=--.-- yaw=+2 cmd=(+0.98,+1.73,-0.17) stall=0
+[tag_estimator-3] [INFO] [1791033448.002617689] [tag_estimator]: est age=0.04s alpha=0.2
+[landing_controller-4] [INFO] [1791033448.008829048] [landing_controller]: state=WAYPOINT nav=14 opt=(+0.16,+1.46,3.17) tgt=--.-- yaw=+2 cmd=(+0.98,+1.74,-0.18) stall=0
+[tag_estimator-3] [INFO] [1791033449.003417508] [tag_estimator]: est age=0.49s alpha=0.2
+[landing_controller-4] [INFO] [1791033449.014547914] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.52,+0.77,2.53) tgt=--.-- yaw=+2 cmd=(+0.97,+1.73,-0.21) stall=0
+[tag_estimator-3] [INFO] [1791033450.002747491] [tag_estimator]: est age=1.49s alpha=0.2
+[landing_controller-4] [INFO] [1791033450.010840684] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.52,+0.77,2.53) tgt=--.-- yaw=+2 cmd=(+0.98,+1.73,-0.22) stall=0
+[tag_estimator-3] [INFO] [1791033451.002268007] [tag_estimator]: est age=2.49s alpha=0.2
+[landing_controller-4] [INFO] [1791033451.009359969] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.52,+0.77,2.53) tgt=--.-- yaw=+2 cmd=(+0.99,+1.72,-0.24) stall=0
+[tag_estimator-3] [INFO] [1791033452.004195597] [tag_estimator]: est age=0.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033452.009117149] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(+0.89,+1.52,-0.21) stall=0
+[tag_estimator-3] [INFO] [1791033453.003565701] [tag_estimator]: est age=1.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033453.010026936] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(+0.76,+1.25,-0.17) stall=0
+[tag_estimator-3] [INFO] [1791033454.002257410] [tag_estimator]: est age=2.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033454.013026085] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(+0.64,+1.03,-0.14) stall=0
+[tag_estimator-3] [INFO] [1791033455.004588166] [tag_estimator]: est age=3.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033455.008555663] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(+0.53,+0.83,-0.11) stall=0
+[tag_estimator-3] [INFO] [1791033456.003337317] [tag_estimator]: est age=4.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033456.009017875] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(+0.43,+0.65,-0.09) stall=0
+[tag_estimator-3] [INFO] [1791033457.002738673] [tag_estimator]: est age=5.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033457.008540376] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(+0.33,+0.49,-0.08) stall=0
+[landing_controller-4] [INFO] [1791033458.009144573] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(+0.23,+0.32,-0.08) stall=0
+[tag_estimator-3] [INFO] [1791033458.015112165] [tag_estimator]: est age=6.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033458.163536675] [landing_controller]: waypoint 2/5 reached
+[tag_estimator-3] [INFO] [1791033459.002870866] [tag_estimator]: est age=7.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033459.012701457] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.80,+0.85,+0.15) stall=0
+[tag_estimator-3] [INFO] [1791033460.002458656] [tag_estimator]: est age=8.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033460.009361451] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.82,+0.81,+0.15) stall=0
+[tag_estimator-3] [INFO] [1791033461.002034871] [tag_estimator]: est age=9.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033461.010464453] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.84,+0.78,+0.13) stall=0
+[tag_estimator-3] [INFO] [1791033462.002486559] [tag_estimator]: est age=10.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033462.009530539] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.84,+0.77,+0.13) stall=0
+[tag_estimator-3] [INFO] [1791033463.002076017] [tag_estimator]: est age=11.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033463.013041239] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.84,+0.76,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033464.003147585] [tag_estimator]: est age=12.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033464.008793686] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.85,+0.76,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033465.001851352] [tag_estimator]: est age=13.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033465.008518826] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.84,+0.77,+0.11) stall=0
+[tag_estimator-3] [INFO] [1791033466.002734656] [tag_estimator]: est age=14.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033466.008678037] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.84,+0.78,+0.10) stall=0
+[tag_estimator-3] [INFO] [1791033467.002801665] [tag_estimator]: est age=15.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033467.008930579] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.83,+0.80,+0.09) stall=0
+[tag_estimator-3] [INFO] [1791033468.003113038] [tag_estimator]: est age=16.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033468.009846623] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.82,+0.83,+0.07) stall=0
+[tag_estimator-3] [INFO] [1791033469.002730231] [tag_estimator]: est age=17.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033469.008229818] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.81,+0.85,+0.05) stall=0
+[tag_estimator-3] [INFO] [1791033470.002574738] [tag_estimator]: est age=18.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033470.009805170] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.80,+0.88,+0.04) stall=0
+[tag_estimator-3] [INFO] [1791033471.004759881] [tag_estimator]: est age=19.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033471.009418038] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.53,+0.78,+0.03) stall=0
+[tag_estimator-3] [INFO] [1791033472.002086616] [tag_estimator]: est age=20.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033472.008535058] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.31,+0.69,+0.01) stall=0
+[tag_estimator-3] [INFO] [1791033473.002344022] [tag_estimator]: est age=21.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033473.013201826] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-1.05,+0.59,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033474.002792247] [tag_estimator]: est age=22.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033474.009632017] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.59,+0.67,2.29) tgt=--.-- yaw=+2 cmd=(-0.83,+0.49,-0.01) stall=0
+[tag_estimator-3] [INFO] [1791033475.002775842] [tag_estimator]: est age=0.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033475.009217132] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.59,+0.38,-0.02) stall=0
+[tag_estimator-3] [INFO] [1791033476.004361172] [tag_estimator]: est age=1.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033476.009381263] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.43,+0.32,-0.02) stall=0
+[landing_controller-4] [INFO] [1791033476.908083071] [landing_controller]: waypoint 3/5 reached
+[tag_estimator-3] [INFO] [1791033477.003862599] [tag_estimator]: est age=2.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033477.009256508] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.15,-1.63,+0.16) stall=0
+[tag_estimator-3] [INFO] [1791033478.002159293] [tag_estimator]: est age=3.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033478.008390668] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.11,-1.66,+0.16) stall=0
+[tag_estimator-3] [INFO] [1791033479.002130799] [tag_estimator]: est age=4.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033479.013916548] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.09,-1.67,+0.15) stall=0
+[tag_estimator-3] [INFO] [1791033480.002283868] [tag_estimator]: est age=5.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033480.008915045] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.06,-1.69,+0.14) stall=0
+[tag_estimator-3] [INFO] [1791033481.004177454] [tag_estimator]: est age=6.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033481.009407079] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.04,-1.70,+0.13) stall=0
+[tag_estimator-3] [INFO] [1791033482.003135453] [tag_estimator]: est age=7.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033482.009015060] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.02,-1.71,+0.13) stall=0
+[tag_estimator-3] [INFO] [1791033483.002120148] [tag_estimator]: est age=8.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033483.010012778] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.01,-1.72,+0.13) stall=0
+[tag_estimator-3] [INFO] [1791033484.002554542] [tag_estimator]: est age=9.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033484.009784982] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.01,-1.72,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033485.002836839] [tag_estimator]: est age=10.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033485.008945254] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.02,-1.72,+0.12) stall=0
+[landing_controller-4] [INFO] [1791033486.010405046] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.02,-1.71,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033486.016289656] [tag_estimator]: est age=11.40s alpha=0.2
+[tag_estimator-3] [INFO] [1791033487.003289960] [tag_estimator]: est age=12.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033487.009373102] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.03,-1.71,+0.11) stall=0
+[tag_estimator-3] [INFO] [1791033488.004050718] [tag_estimator]: est age=13.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033488.009244055] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.03,-1.71,+0.09) stall=0
+[tag_estimator-3] [INFO] [1791033489.002350560] [tag_estimator]: est age=14.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033489.009176378] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-1.03,-1.71,+0.08) stall=0
+[tag_estimator-3] [INFO] [1791033490.002261322] [tag_estimator]: est age=15.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033490.009212210] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.95,-1.57,+0.06) stall=0
+[tag_estimator-3] [INFO] [1791033491.002643301] [tag_estimator]: est age=16.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033491.009067514] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.81,-1.34,+0.03) stall=0
+[tag_estimator-3] [INFO] [1791033492.002163297] [tag_estimator]: est age=17.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033492.008867860] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.65,-1.07,+0.02) stall=0
+[tag_estimator-3] [INFO] [1791033493.003742713] [tag_estimator]: est age=18.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033493.009440703] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.51,-0.87,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033494.002446667] [tag_estimator]: est age=19.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033494.008879500] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.40,-0.70,-0.00) stall=0
+[tag_estimator-3] [INFO] [1791033495.001965480] [tag_estimator]: est age=20.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033495.008311336] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.31,-0.54,-0.01) stall=0
+[tag_estimator-3] [INFO] [1791033496.002788074] [tag_estimator]: est age=21.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033496.008853887] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(-0.24,-0.43,-0.01) stall=0
+[landing_controller-4] [INFO] [1791033496.557845892] [landing_controller]: waypoint 4/5 reached
+[tag_estimator-3] [INFO] [1791033497.002210208] [tag_estimator]: est age=22.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033497.008335017] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.88,-0.59,+0.32) stall=0
+[tag_estimator-3] [INFO] [1791033498.002334774] [tag_estimator]: est age=23.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033498.012873744] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.92,-0.49,+0.30) stall=0
+[tag_estimator-3] [INFO] [1791033499.005010238] [tag_estimator]: est age=24.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033499.010400342] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.94,-0.40,+0.27) stall=0
+[tag_estimator-3] [INFO] [1791033500.004403431] [tag_estimator]: est age=25.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033500.008844738] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.96,-0.33,+0.23) stall=0
+[tag_estimator-3] [INFO] [1791033501.002665721] [tag_estimator]: est age=26.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033501.009112518] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.84,-0.27,+0.20) stall=0
+[tag_estimator-3] [INFO] [1791033502.002248062] [tag_estimator]: est age=27.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033502.009409659] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.59,-0.20,+0.16) stall=0
+[tag_estimator-3] [INFO] [1791033503.002635311] [tag_estimator]: est age=28.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033503.009246181] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.39,-0.15,+0.14) stall=0
+[tag_estimator-3] [INFO] [1791033504.005502559] [tag_estimator]: est age=29.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033504.008940516] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+1.20,-0.12,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033505.002381944] [tag_estimator]: est age=30.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033505.009119987] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.93,-0.07,+0.10) stall=0
+[tag_estimator-3] [INFO] [1791033506.002102374] [tag_estimator]: est age=31.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033506.008603202] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.73,-0.05,+0.07) stall=0
+[tag_estimator-3] [INFO] [1791033507.001922689] [tag_estimator]: est age=32.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033507.009594154] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.53,-0.04,+0.05) stall=0
+[tag_estimator-3] [INFO] [1791033508.007656745] [tag_estimator]: est age=33.40s alpha=0.2
+[landing_controller-4] [INFO] [1791033508.009925894] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.40,-0.04,+0.03) stall=0
+[landing_controller-4] [INFO] [1791033508.158361849] [landing_controller]: waypoint 5/5 reached
+[landing_controller-4] [INFO] [1791033508.159370938] [landing_controller]: circuit complete: entering TRACK
+[landing_controller-4] [INFO] [1791033508.208383158] [landing_controller]: tag lost high: HOLD
+[tag_estimator-3] [INFO] [1791033509.003542026] [tag_estimator]: est age=34.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033509.012694630] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.01) stall=0
+[tag_estimator-3] [INFO] [1791033510.003857123] [tag_estimator]: est age=35.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033510.012171610] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.03) stall=0
+[tag_estimator-3] [INFO] [1791033511.001777914] [tag_estimator]: est age=36.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033511.008887412] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.03) stall=0
+[tag_estimator-3] [INFO] [1791033512.002918287] [tag_estimator]: est age=37.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033512.009415412] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.04) stall=0
+[tag_estimator-3] [INFO] [1791033513.002503501] [tag_estimator]: est age=38.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033513.012463351] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.04) stall=0
+[tag_estimator-3] [INFO] [1791033514.007992395] [tag_estimator]: est age=39.40s alpha=0.2
+[landing_controller-4] [INFO] [1791033514.008492054] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.03) stall=0
+[tag_estimator-3] [INFO] [1791033515.003564209] [tag_estimator]: est age=40.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033515.011508636] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.03) stall=0
+[tag_estimator-3] [INFO] [1791033516.003734544] [tag_estimator]: est age=41.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033516.008761028] [landing_controller]: state=HOLD nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.00,+0.00,-0.03) stall=0
+[landing_controller-4] [INFO] [1791033516.258261977] [landing_controller]: reacquire 1: returning to gate
+[tag_estimator-3] [INFO] [1791033517.006900347] [tag_estimator]: est age=42.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033517.010365578] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.99,-1.35,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033518.002091019] [tag_estimator]: est age=43.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033518.008847440] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.97,-1.33,+0.02) stall=0
+[tag_estimator-3] [INFO] [1791033519.007754977] [tag_estimator]: est age=44.40s alpha=0.2
+[landing_controller-4] [INFO] [1791033519.009420346] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.92,-1.28,+0.02) stall=0
+[tag_estimator-3] [INFO] [1791033520.003818425] [tag_estimator]: est age=45.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033520.011786609] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.82,-1.15,-0.00) stall=0
+[tag_estimator-3] [INFO] [1791033521.008501338] [tag_estimator]: est age=46.40s alpha=0.2
+[landing_controller-4] [INFO] [1791033521.009336958] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.74,-1.02,-0.01) stall=0
+[tag_estimator-3] [INFO] [1791033522.003631593] [tag_estimator]: est age=47.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033522.008933942] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.64,-0.87,-0.00) stall=0
+[tag_estimator-3] [INFO] [1791033523.003883598] [tag_estimator]: est age=48.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033523.009331491] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.55,-0.73,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033524.002780421] [tag_estimator]: est age=49.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033524.010373256] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.46,-0.60,-0.00) stall=0
+[tag_estimator-3] [INFO] [1791033525.002754772] [tag_estimator]: est age=50.39s alpha=0.2
+[landing_controller-4] [INFO] [1791033525.020975852] [landing_controller]: state=WAYPOINT nav=14 opt=(-0.47,+0.60,2.09) tgt=--.-- yaw=+2 cmd=(+0.37,-0.46,-0.00) stall=0
+[tag_estimator-3] [INFO] [1791033526.002537690] [tag_estimator]: est age=0.09s alpha=0.2
+[landing_controller-4] [INFO] [1791033526.012887969] [landing_controller]: state=WAYPOINT nav=14 opt=(-1.27,+1.15,2.55) tgt=--.-- yaw=+2 cmd=(+0.30,-0.37,-0.00) stall=0
+[landing_controller-4] [INFO] [1791033526.657818401] [landing_controller]: waypoint 1/1 reached
+[landing_controller-4] [INFO] [1791033526.661935876] [landing_controller]: circuit complete: entering TRACK
+[tag_estimator-3] [INFO] [1791033527.005708030] [tag_estimator]: est age=0.27s alpha=0.2
+[landing_controller-4] [INFO] [1791033527.009376941] [landing_controller]: state=TRACK nav=14 opt=(-1.66,+1.32,2.52) tgt=2.57 yaw=+2 cmd=(+0.78,-0.63,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033528.003754128] [tag_estimator]: est age=0.01s alpha=0.2
+[landing_controller-4] [INFO] [1791033528.008385078] [landing_controller]: state=TRACK nav=14 opt=(-1.47,+1.10,2.07) tgt=2.49 yaw=+2 cmd=(+0.73,-0.56,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033529.004428815] [tag_estimator]: est age=0.08s alpha=0.2
+[landing_controller-4] [INFO] [1791033529.011240446] [landing_controller]: state=TRACK nav=14 opt=(-1.55,+1.13,2.11) tgt=2.41 yaw=+2 cmd=(+0.77,-0.57,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033530.002630371] [tag_estimator]: est age=0.01s alpha=0.2
+[landing_controller-4] [INFO] [1791033530.008728009] [landing_controller]: state=TRACK nav=14 opt=(-1.31,+0.93,1.80) tgt=2.33 yaw=+2 cmd=(+0.65,-0.47,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033531.002595126] [tag_estimator]: est age=0.12s alpha=0.2
+[landing_controller-4] [INFO] [1791033531.008840852] [landing_controller]: state=TRACK nav=14 opt=(-1.06,+0.75,1.58) tgt=2.25 yaw=+2 cmd=(+0.53,-0.38,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033532.005506989] [tag_estimator]: est age=0.26s alpha=0.2
+[landing_controller-4] [INFO] [1791033532.012746631] [landing_controller]: state=TRACK nav=14 opt=(-0.88,+0.63,1.52) tgt=2.17 yaw=+2 cmd=(+0.44,-0.32,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033533.002546270] [tag_estimator]: est age=0.13s alpha=0.2
+[landing_controller-4] [INFO] [1791033533.009512883] [landing_controller]: state=TRACK nav=14 opt=(-0.70,+0.51,1.52) tgt=2.09 yaw=+2 cmd=(+0.35,-0.26,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033534.004029732] [tag_estimator]: est age=0.06s alpha=0.2
+[landing_controller-4] [INFO] [1791033534.011162186] [landing_controller]: state=TRACK nav=14 opt=(-0.57,+0.43,1.51) tgt=2.01 yaw=+2 cmd=(+0.28,-0.22,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033535.002772476] [tag_estimator]: est age=0.12s alpha=0.2
+[landing_controller-4] [INFO] [1791033535.008884580] [landing_controller]: state=TRACK nav=14 opt=(-0.46,+0.36,1.50) tgt=1.93 yaw=+2 cmd=(+0.23,-0.18,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033536.003153886] [tag_estimator]: est age=0.42s alpha=0.2
+[landing_controller-4] [INFO] [1791033536.009373144] [landing_controller]: state=TRACK nav=14 opt=(-0.40,+0.33,1.49) tgt=1.85 yaw=+2 cmd=(+0.20,-0.17,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033537.002711757] [tag_estimator]: est age=0.11s alpha=0.2
+[landing_controller-4] [INFO] [1791033537.012740317] [landing_controller]: state=TRACK nav=14 opt=(-0.28,+0.26,1.47) tgt=1.77 yaw=+2 cmd=(+0.14,-0.13,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033538.006973954] [tag_estimator]: est age=0.14s alpha=0.2
+[landing_controller-4] [INFO] [1791033538.010966207] [landing_controller]: state=TRACK nav=14 opt=(-0.21,+0.23,1.46) tgt=1.69 yaw=+2 cmd=(+0.10,-0.12,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033539.002644319] [tag_estimator]: est age=0.14s alpha=0.2
+[landing_controller-4] [INFO] [1791033539.009310292] [landing_controller]: state=TRACK nav=14 opt=(-0.14,+0.20,1.45) tgt=1.61 yaw=+2 cmd=(+0.07,-0.10,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033540.002276632] [tag_estimator]: est age=0.18s alpha=0.2
+[landing_controller-4] [INFO] [1791033540.009295401] [landing_controller]: state=TRACK nav=14 opt=(-0.09,+0.17,1.44) tgt=1.53 yaw=+2 cmd=(+0.04,-0.09,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033541.002627357] [tag_estimator]: est age=0.41s alpha=0.2
+[landing_controller-4] [INFO] [1791033541.009886621] [landing_controller]: state=TRACK nav=14 opt=(-0.07,+0.16,1.42) tgt=1.45 yaw=+2 cmd=(+0.03,-0.08,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033542.002119457] [tag_estimator]: est age=0.02s alpha=0.2
+[landing_controller-4] [INFO] [1791033542.009231045] [landing_controller]: state=TRACK nav=14 opt=(-0.02,+0.15,1.41) tgt=1.37 yaw=+2 cmd=(+0.01,-0.07,+0.03) stall=0
+[tag_estimator-3] [INFO] [1791033543.003034651] [tag_estimator]: est age=0.20s alpha=0.2
+[landing_controller-4] [INFO] [1791033543.010843063] [landing_controller]: state=TRACK nav=14 opt=(+0.01,+0.14,1.40) tgt=1.29 yaw=+2 cmd=(-0.00,-0.07,+0.09) stall=0
+[tag_estimator-3] [INFO] [1791033544.004149100] [tag_estimator]: est age=0.01s alpha=0.2
+[landing_controller-4] [INFO] [1791033544.009781437] [landing_controller]: state=TRACK nav=14 opt=(+0.04,+0.14,1.38) tgt=1.21 yaw=+2 cmd=(-0.02,-0.07,+0.14) stall=0
+[tag_estimator-3] [INFO] [1791033545.002872202] [tag_estimator]: est age=0.27s alpha=0.2
+[landing_controller-4] [INFO] [1791033545.011344593] [landing_controller]: state=TRACK nav=14 opt=(+0.05,+0.14,1.36) tgt=1.13 yaw=+2 cmd=(-0.03,-0.07,+0.19) stall=0
+[tag_estimator-3] [INFO] [1791033546.003418961] [tag_estimator]: est age=0.14s alpha=0.2
+[landing_controller-4] [INFO] [1791033546.013281778] [landing_controller]: state=TRACK nav=14 opt=(+0.06,+0.14,1.34) tgt=1.05 yaw=+2 cmd=(-0.03,-0.07,+0.23) stall=0
+[landing_controller-4] [INFO] [1791033547.008893826] [landing_controller]: state=TRACK nav=14 opt=(+0.07,+0.14,1.32) tgt=0.97 yaw=+2 cmd=(-0.04,-0.07,+0.28) stall=0
+[tag_estimator-3] [INFO] [1791033547.011998021] [tag_estimator]: est age=0.18s alpha=0.2
+[tag_estimator-3] [INFO] [1791033548.004464151] [tag_estimator]: est age=0.23s alpha=0.2
+[landing_controller-4] [INFO] [1791033548.014773397] [landing_controller]: state=TRACK nav=14 opt=(+0.08,+0.14,1.29) tgt=0.89 yaw=+2 cmd=(-0.04,-0.07,+0.32) stall=0
+[tag_estimator-3] [INFO] [1791033549.002838544] [tag_estimator]: est age=0.33s alpha=0.2
+[landing_controller-4] [INFO] [1791033549.010942620] [landing_controller]: state=TRACK nav=14 opt=(+0.08,+0.15,1.25) tgt=0.81 yaw=+2 cmd=(-0.04,-0.07,+0.36) stall=0
+[tag_estimator-3] [INFO] [1791033550.004865752] [tag_estimator]: est age=0.11s alpha=0.2
+[landing_controller-4] [INFO] [1791033550.009323874] [landing_controller]: state=TRACK nav=14 opt=(+0.09,+0.15,1.19) tgt=0.73 yaw=+2 cmd=(-0.05,-0.07,+0.37) stall=0
+[tag_estimator-3] [INFO] [1791033551.004279040] [tag_estimator]: est age=0.10s alpha=0.2
+[landing_controller-4] [INFO] [1791033551.008843079] [landing_controller]: state=TRACK nav=14 opt=(+0.09,+0.15,1.13) tgt=0.65 yaw=+2 cmd=(-0.05,-0.07,+0.39) stall=0
+[tag_estimator-3] [INFO] [1791033552.002603942] [tag_estimator]: est age=0.03s alpha=0.2
+[landing_controller-4] [INFO] [1791033552.009074103] [landing_controller]: state=TRACK nav=14 opt=(+0.09,+0.15,1.08) tgt=0.57 yaw=+2 cmd=(-0.05,-0.08,+0.41) stall=0
+[tag_estimator-3] [INFO] [1791033553.006896846] [tag_estimator]: est age=0.14s alpha=0.2
+[landing_controller-4] [INFO] [1791033553.009140728] [landing_controller]: state=TRACK nav=14 opt=(+0.09,+0.16,1.03) tgt=0.49 yaw=+2 cmd=(-0.05,-0.08,+0.44) stall=0
+[tag_estimator-3] [INFO] [1791033554.002411714] [tag_estimator]: est age=0.23s alpha=0.2
+[landing_controller-4] [INFO] [1791033554.010470028] [landing_controller]: state=TRACK nav=14 opt=(+0.09,+0.16,0.99) tgt=0.41 yaw=+2 cmd=(-0.05,-0.08,+0.47) stall=0
+[landing_controller-4] [INFO] [1791033554.860711109] [landing_controller]: tag lost at oz=0.99 centered_descent=True: BLIND
+[tag_estimator-3] [INFO] [1791033555.002041157] [tag_estimator]: est age=1.23s alpha=0.2
+[landing_controller-4] [INFO] [1791033555.011435949] [landing_controller]: state=BLIND nav=14 opt=(+0.09,+0.16,0.99) tgt=0.34 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033556.003204158] [tag_estimator]: est age=2.23s alpha=0.2
+[landing_controller-4] [INFO] [1791033556.009013505] [landing_controller]: state=BLIND nav=14 opt=(+0.09,+0.16,0.99) tgt=0.34 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033557.002670163] [tag_estimator]: est age=3.23s alpha=0.2
+[landing_controller-4] [INFO] [1791033557.008760127] [landing_controller]: state=BLIND nav=14 opt=(+0.09,+0.16,0.99) tgt=0.34 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033558.004219540] [tag_estimator]: est age=4.23s alpha=0.2
+[landing_controller-4] [INFO] [1791033558.009199782] [landing_controller]: state=BLIND nav=14 opt=(+0.09,+0.16,0.99) tgt=0.34 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[landing_controller-4] [INFO] [1791033558.258327055] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033559.002285799] [tag_estimator]: est age=0.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033559.009168483] [landing_controller]: state=TRACK nav=14 opt=(+0.11,+0.17,1.04) tgt=0.28 yaw=+2 cmd=(-0.06,-0.09,+0.61) stall=0
+[landing_controller-4] [INFO] [1791033559.307924355] [landing_controller]: tag lost at oz=1.04 centered_descent=True: BLIND
+[tag_estimator-3] [INFO] [1791033560.002106060] [tag_estimator]: est age=1.77s alpha=0.2
+[landing_controller-4] [INFO] [1791033560.012533550] [landing_controller]: state=BLIND nav=14 opt=(+0.11,+0.17,1.04) tgt=0.26 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[landing_controller-4] [INFO] [1791033560.708722766] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033561.004467525] [tag_estimator]: est age=0.30s alpha=0.2
+[landing_controller-4] [INFO] [1791033561.008901262] [landing_controller]: state=TRACK nav=14 opt=(+0.15,+0.21,1.13) tgt=0.25 yaw=+2 cmd=(-0.08,-0.10,+0.71) stall=0
+[tag_estimator-3] [INFO] [1791033562.005990794] [tag_estimator]: est age=0.01s alpha=0.2
+[landing_controller-4] [INFO] [1791033562.008380845] [landing_controller]: state=TRACK nav=14 opt=(+0.22,+0.41,1.40) tgt=0.25 yaw=+2 cmd=(-0.11,-0.20,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033563.002332536] [tag_estimator]: est age=0.13s alpha=0.2
+[landing_controller-4] [INFO] [1791033563.010500484] [landing_controller]: state=TRACK nav=14 opt=(+0.14,+0.50,1.32) tgt=0.25 yaw=+2 cmd=(-0.08,-0.25,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033564.002413140] [tag_estimator]: est age=0.99s alpha=0.2
+[landing_controller-4] [INFO] [1791033564.015591213] [landing_controller]: state=TRACK nav=14 opt=(+0.19,+0.52,1.36) tgt=0.25 yaw=+2 cmd=(-0.10,-0.26,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033564.158132222] [landing_controller]: tag lost at oz=1.36 centered_descent=True: BLIND
+[landing_controller-4] [INFO] [1791033564.957629981] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033565.004817547] [tag_estimator]: est age=0.07s alpha=0.2
+[landing_controller-4] [INFO] [1791033565.008779782] [landing_controller]: state=TRACK nav=14 opt=(+0.23,+0.54,1.41) tgt=0.25 yaw=+2 cmd=(-0.12,-0.27,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033566.002791375] [tag_estimator]: est age=0.07s alpha=0.2
+[landing_controller-4] [INFO] [1791033566.008753438] [landing_controller]: state=TRACK nav=14 opt=(+0.35,+0.58,1.55) tgt=0.25 yaw=+2 cmd=(-0.18,-0.28,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033567.003294767] [tag_estimator]: est age=0.27s alpha=0.2
+[landing_controller-4] [INFO] [1791033567.012922618] [landing_controller]: state=TRACK nav=14 opt=(+0.38,+0.58,1.55) tgt=0.25 yaw=+2 cmd=(-0.19,-0.29,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033567.807780336] [landing_controller]: tag lost at oz=1.55 centered_descent=True: BLIND
+[tag_estimator-3] [INFO] [1791033568.002488440] [tag_estimator]: est age=1.27s alpha=0.2
+[landing_controller-4] [INFO] [1791033568.008924707] [landing_controller]: state=BLIND nav=14 opt=(+0.38,+0.58,1.55) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[landing_controller-4] [INFO] [1791033568.208414504] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033569.003969270] [tag_estimator]: est age=0.36s alpha=0.2
+[landing_controller-4] [INFO] [1791033569.008979310] [landing_controller]: state=TRACK nav=14 opt=(+0.42,+0.57,1.64) tgt=0.25 yaw=+2 cmd=(-0.22,-0.28,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033569.709996239] [landing_controller]: tag lost at oz=1.64 centered_descent=True: BLIND
+[landing_controller-4] [INFO] [1791033569.757828442] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033570.006335251] [tag_estimator]: est age=0.06s alpha=0.2
+[landing_controller-4] [INFO] [1791033570.010909822] [landing_controller]: state=TRACK nav=14 opt=(+0.42,+0.54,1.68) tgt=0.25 yaw=+2 cmd=(-0.21,-0.27,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033571.002455965] [tag_estimator]: est age=0.40s alpha=0.2
+[landing_controller-4] [INFO] [1791033571.009107445] [landing_controller]: state=TRACK nav=14 opt=(+0.32,+0.50,1.61) tgt=0.25 yaw=+2 cmd=(-0.17,-0.25,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033571.707968549] [landing_controller]: tag lost at oz=1.61 centered_descent=True: BLIND
+[tag_estimator-3] [INFO] [1791033572.002331389] [tag_estimator]: est age=1.40s alpha=0.2
+[landing_controller-4] [INFO] [1791033572.020607063] [landing_controller]: state=BLIND nav=14 opt=(+0.32,+0.50,1.61) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[landing_controller-4] [INFO] [1791033572.308601135] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033573.002656641] [tag_estimator]: est age=0.25s alpha=0.2
+[landing_controller-4] [INFO] [1791033573.015651396] [landing_controller]: state=TRACK nav=14 opt=(+0.29,+0.41,1.69) tgt=0.25 yaw=+2 cmd=(-0.15,-0.20,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033573.858259708] [landing_controller]: tag lost at oz=1.69 centered_descent=True: BLIND
+[tag_estimator-3] [INFO] [1791033574.002422991] [tag_estimator]: est age=1.25s alpha=0.2
+[landing_controller-4] [INFO] [1791033574.010992074] [landing_controller]: state=BLIND nav=14 opt=(+0.29,+0.41,1.69) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[landing_controller-4] [INFO] [1791033574.964173311] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033575.002589527] [tag_estimator]: est age=0.07s alpha=0.2
+[landing_controller-4] [INFO] [1791033575.011552393] [landing_controller]: state=TRACK nav=14 opt=(+0.27,+0.36,1.72) tgt=0.25 yaw=+2 cmd=(-0.14,-0.18,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033576.003267380] [tag_estimator]: est age=1.07s alpha=0.2
+[landing_controller-4] [INFO] [1791033576.008426561] [landing_controller]: tag lost at oz=1.72 centered_descent=True: BLIND
+[landing_controller-4] [INFO] [1791033576.011878483] [landing_controller]: state=BLIND nav=14 opt=(+0.27,+0.36,1.72) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033577.003323088] [tag_estimator]: est age=2.07s alpha=0.2
+[landing_controller-4] [INFO] [1791033577.009772663] [landing_controller]: state=BLIND nav=14 opt=(+0.27,+0.36,1.72) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=1
+[landing_controller-4] [INFO] [1791033577.163458639] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033578.002301461] [tag_estimator]: est age=0.01s alpha=0.2
+[landing_controller-4] [INFO] [1791033578.016561479] [landing_controller]: state=TRACK nav=14 opt=(+0.17,+0.20,1.75) tgt=0.25 yaw=+2 cmd=(-0.09,-0.10,+0.80) stall=0
+[tag_estimator-3] [INFO] [1791033579.006301965] [tag_estimator]: est age=0.06s alpha=0.2
+[landing_controller-4] [INFO] [1791033579.015231236] [landing_controller]: state=TRACK nav=14 opt=(+0.07,+0.06,1.75) tgt=0.25 yaw=+2 cmd=(-0.04,-0.03,+0.80) stall=0
+[tag_estimator-3] [INFO] [1791033580.002566380] [tag_estimator]: est age=0.33s alpha=0.2
+[landing_controller-4] [INFO] [1791033580.011829633] [landing_controller]: state=TRACK nav=14 opt=(-0.02,-0.01,1.64) tgt=0.25 yaw=+2 cmd=(+0.01,+0.01,+0.80) stall=0
+[tag_estimator-3] [INFO] [1791033581.003234477] [tag_estimator]: est age=0.71s alpha=0.2
+[landing_controller-4] [INFO] [1791033581.009904547] [landing_controller]: state=TRACK nav=14 opt=(-0.05,-0.04,1.53) tgt=0.25 yaw=+2 cmd=(+0.03,+0.02,+0.80) stall=0
+[tag_estimator-3] [INFO] [1791033582.007933419] [tag_estimator]: est age=0.15s alpha=0.2
+[landing_controller-4] [INFO] [1791033582.013017964] [landing_controller]: state=TRACK nav=14 opt=(-0.64,-0.22,1.64) tgt=0.25 yaw=+2 cmd=(+0.32,+0.10,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033583.002139649] [tag_estimator]: est age=0.68s alpha=0.2
+[landing_controller-4] [INFO] [1791033583.009593694] [landing_controller]: state=TRACK nav=14 opt=(-0.73,-0.11,1.52) tgt=0.25 yaw=+2 cmd=(+0.37,+0.05,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033583.410665866] [landing_controller]: tag lost at oz=1.52 centered_descent=True: BLIND
+[tag_estimator-3] [INFO] [1791033584.003852375] [tag_estimator]: est age=1.68s alpha=0.2
+[landing_controller-4] [INFO] [1791033584.008667010] [landing_controller]: state=BLIND nav=14 opt=(-0.73,-0.11,1.52) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033585.002405451] [tag_estimator]: est age=2.68s alpha=0.2
+[landing_controller-4] [INFO] [1791033585.008694762] [landing_controller]: state=BLIND nav=14 opt=(-0.73,-0.11,1.52) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=1
+[landing_controller-4] [INFO] [1791033585.258315994] [landing_controller]: tag reacquired: TRACK
+[tag_estimator-3] [INFO] [1791033586.002664514] [tag_estimator]: est age=0.05s alpha=0.2
+[landing_controller-4] [INFO] [1791033586.009147180] [landing_controller]: state=TRACK nav=14 opt=(-0.88,+0.23,1.40) tgt=0.25 yaw=+2 cmd=(+0.44,-0.12,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033587.002715047] [tag_estimator]: est age=0.08s alpha=0.2
+[landing_controller-4] [INFO] [1791033587.008765293] [landing_controller]: state=TRACK nav=14 opt=(-0.86,+0.35,1.29) tgt=0.25 yaw=+2 cmd=(+0.43,-0.17,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033588.004249542] [tag_estimator]: est age=0.34s alpha=0.2
+[landing_controller-4] [INFO] [1791033588.009237264] [landing_controller]: state=TRACK nav=14 opt=(-0.80,+0.04,1.19) tgt=0.25 yaw=+2 cmd=(+0.40,-0.02,+0.00) stall=0
+[tag_estimator-3] [INFO] [1791033589.002562984] [tag_estimator]: est age=0.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033589.009139274] [landing_controller]: state=TRACK nav=14 opt=(-0.78,+0.06,1.17) tgt=0.25 yaw=+2 cmd=(+0.39,-0.03,+0.00) stall=0
+[landing_controller-4] [INFO] [1791033589.110055445] [landing_controller]: tag lost at oz=1.17 centered_descent=True: BLIND
+[tag_estimator-3] [INFO] [1791033590.006784902] [tag_estimator]: est age=1.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033590.008839833] [landing_controller]: state=BLIND nav=14 opt=(-0.78,+0.06,1.17) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=0
+[tag_estimator-3] [INFO] [1791033591.002382345] [tag_estimator]: est age=2.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033591.008656104] [landing_controller]: state=BLIND nav=14 opt=(-0.78,+0.06,1.17) tgt=0.25 yaw=+2 cmd=(+0.00,+0.00,+0.12) stall=1
+[landing_controller-4] [WARN] [1791033591.059480036] [landing_controller]: handoff (blind stall=2): NAV_LAND
+[tag_estimator-3] [INFO] [1791033592.002683793] [tag_estimator]: est age=3.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033592.009810314] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033593.004101397] [tag_estimator]: est age=4.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033593.009718608] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033594.007699981] [tag_estimator]: est age=5.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033594.008532227] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033595.002710095] [tag_estimator]: est age=6.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033595.008118000] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033596.008874126] [tag_estimator]: est age=7.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033596.013128549] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033597.007677614] [tag_estimator]: est age=8.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033597.008597557] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033598.004045955] [tag_estimator]: est age=9.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033598.012716540] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033599.002515818] [tag_estimator]: est age=10.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033599.008307227] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033600.003892742] [tag_estimator]: est age=11.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033600.008238412] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033601.009820026] [tag_estimator]: est age=12.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033601.011790992] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033602.002361873] [tag_estimator]: est age=13.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033602.008775073] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033603.016184943] [tag_estimator]: est age=14.97s alpha=0.2
+[landing_controller-4] [INFO] [1791033603.017379077] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033604.003179934] [tag_estimator]: est age=15.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033604.008525078] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033605.004171762] [tag_estimator]: est age=16.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033605.012271982] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033606.002589840] [tag_estimator]: est age=17.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033606.008451422] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033607.003379222] [tag_estimator]: est age=18.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033607.008688120] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033608.002282699] [tag_estimator]: est age=19.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033608.012413018] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033609.002957165] [tag_estimator]: est age=20.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033609.011930093] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033610.002378559] [tag_estimator]: est age=21.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033610.008267162] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033611.002286122] [tag_estimator]: est age=22.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033611.012518056] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033612.002327773] [tag_estimator]: est age=23.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033612.008179397] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033613.002619392] [tag_estimator]: est age=24.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033613.009312622] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033614.009572070] [tag_estimator]: est age=25.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033614.012163107] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033615.002554398] [tag_estimator]: est age=26.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033615.010041215] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033616.007967896] [tag_estimator]: est age=27.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033616.008575171] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033617.002651280] [tag_estimator]: est age=28.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033617.008412272] [landing_controller]: state=DONE awaiting PX4 touchdown
 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
-[landing_controller-4] [INFO] [1790770773.007061520] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770773.042567461] [tag_estimator]: est age=159.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770774.005834606] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770774.044006840] [tag_estimator]: est age=160.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770775.010934945] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770775.041216037] [tag_estimator]: est age=161.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770776.006352353] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770776.041396557] [tag_estimator]: est age=162.46s alpha=0.2
-[landing_controller-4] [INFO] [1790770777.006142178] [landing_controller]: state=TRACK opt=NONE tgt=--.-- cmd=(0.00, 0.00, +0.00) stall=0
-[tag_estimator-3] [INFO] [1790770777.041471095] [tag_estimator]: est age=163.46s alpha=0.2
+[tag_estimator-3] [INFO] [1791033618.002848827] [tag_estimator]: est age=29.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033618.008583203] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033619.004540345] [tag_estimator]: est age=30.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033619.012824889] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033620.002645467] [tag_estimator]: est age=31.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033620.007679468] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033621.003785321] [tag_estimator]: est age=32.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033621.008366600] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033622.002494527] [tag_estimator]: est age=33.96s alpha=0.2
+[landing_controller-4] [INFO] [1791033622.012094098] [landing_controller]: state=DONE awaiting PX4 touchdown
+[tag_estimator-3] [INFO] [1791033623.002260094] [tag_estimator]: est age=34.96s alpha=0.2
 [ERROR] [landing_controller-4]: process[landing_controller-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [landing_controller-4]: sending signal 'SIGTERM' to process[landing_controller-4]
 [ERROR] [tag_estimator-3]: process[tag_estimator-3] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
 [ERROR] [yolo_detector-2]: process[yolo_detector-2] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
 [ERROR] [parameter_bridge-1]: process[parameter_bridge-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
-[INFO] [landing_controller-4]: sending signal 'SIGTERM' to process[landing_controller-4]
+[landing_controller-4] [INFO] [1791033623.008729058] [landing_controller]: state=DONE awaiting PX4 touchdown
 [INFO] [tag_estimator-3]: sending signal 'SIGTERM' to process[tag_estimator-3]
 [INFO] [yolo_detector-2]: sending signal 'SIGTERM' to process[yolo_detector-2]
 [INFO] [parameter_bridge-1]: sending signal 'SIGTERM' to process[parameter_bridge-1]
-[parameter_bridge-1] [INFO] [1790770777.836344179] [rclcpp]: signal_handler(SIGINT/SIGTERM)
-[INFO] [parameter_bridge-1]: process has finished cleanly [pid 4726]
-[yolo_detector-2] Traceback (most recent call last):
-[yolo_detector-2]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/python3.12/site-packages/pl_perception/yolo_detector.py", line 136, in main
-[yolo_detector-2]     rclpy.spin(node)
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
-[yolo_detector-2]     executor.spin_once()
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
-[yolo_detector-2]     self._spin_once_impl(timeout_sec)
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 907, in _spin_once_impl
-[yolo_detector-2]     handler, entity, node = self.wait_for_ready_callbacks(
-[yolo_detector-2]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 877, in wait_for_ready_callbacks
-[yolo_detector-2]     return next(self._cb_iter)
-[yolo_detector-2]            ^^^^^^^^^^^^^^^^^^^
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 785, in _wait_for_ready_callbacks
-[yolo_detector-2]     raise ExternalShutdownException()
-[yolo_detector-2] rclpy.executors.ExternalShutdownException
-[yolo_detector-2] 
-[yolo_detector-2] During handling of the above exception, another exception occurred:
-[yolo_detector-2] 
-[yolo_detector-2] Traceback (most recent call last):
-[yolo_detector-2]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/yolo_detector", line 33, in <module>
-[yolo_detector-2]     sys.exit(load_entry_point('pl-perception==0.1.0', 'console_scripts', 'yolo_detector')())
-[yolo_detector-2]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[yolo_detector-2]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/python3.12/site-packages/pl_perception/yolo_detector.py", line 139, in main
-[yolo_detector-2]     rclpy.shutdown()
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
-[yolo_detector-2]     _shutdown(context=context)
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
-[yolo_detector-2]     context.shutdown()
-[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
-[yolo_detector-2]     self.__context.shutdown()
-[yolo_detector-2] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[parameter_bridge-1] [INFO] [1791033623.022330005] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [parameter_bridge-1]: process has finished cleanly [pid 7527]
+[yolo_detector-2] [WARN] [1791033623.127484713] [yolo_detector]: frame skipped (count=1): RCLError("Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:423")
+[yolo_detector-2] Failed to publish log message to rosout: publisher's context is invalid, at ./src/rcl/publisher.c:423
 [tag_estimator-3] Traceback (most recent call last):
 [tag_estimator-3]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/python3.12/site-packages/pl_perception/tag_estimator.py", line 77, in main
-[landing_controller-4] Traceback (most recent call last):
-[landing_controller-4]   File "/home/madakie/precision_landing/ros2_ws/install/pl_control/lib/python3.12/site-packages/pl_control/landing_controller.py", line 270, in main
 [tag_estimator-3]     rclpy.spin(node)
 [tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
-[landing_controller-4]     rclpy.spin(node)
-[landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
-[landing_controller-4]     executor.spin_once()
-[landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
-[landing_controller-4]     self._spin_once_impl(timeout_sec)
-[landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 907, in _spin_once_impl
 [tag_estimator-3]     executor.spin_once()
 [tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
 [tag_estimator-3]     self._spin_once_impl(timeout_sec)
@@ -411,6 +660,32 @@
 [tag_estimator-3]     return next(self._cb_iter)
 [tag_estimator-3]            ^^^^^^^^^^^^^^^^^^^
 [tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 785, in _wait_for_ready_callbacks
+[tag_estimator-3]     raise ExternalShutdownException()
+[tag_estimator-3] rclpy.executors.ExternalShutdownException
+[tag_estimator-3] 
+[tag_estimator-3] During handling of the above exception, another exception occurred:
+[tag_estimator-3] 
+[tag_estimator-3] Traceback (most recent call last):
+[tag_estimator-3]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/tag_estimator", line 33, in <module>
+[tag_estimator-3]     sys.exit(load_entry_point('pl-perception==0.1.0', 'console_scripts', 'tag_estimator')())
+[landing_controller-4] Traceback (most recent call last):
+[landing_controller-4]   File "/home/madakie/precision_landing/ros2_ws/install/pl_control/lib/python3.12/site-packages/pl_control/landing_controller.py", line 294, in main
+[landing_controller-4]     rclpy.spin(node)
+[landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[landing_controller-4]     executor.spin_once()
+[landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
+[tag_estimator-3]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[tag_estimator-3]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/python3.12/site-packages/pl_perception/tag_estimator.py", line 80, in main
+[tag_estimator-3]     rclpy.shutdown()
+[tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[tag_estimator-3]     _shutdown(context=context)
+[tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+[tag_estimator-3]     context.shutdown()
+[tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
+[tag_estimator-3]     self.__context.shutdown()
+[tag_estimator-3] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[landing_controller-4]     self._spin_once_impl(timeout_sec)
+[landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 907, in _spin_once_impl
 [landing_controller-4]     handler, entity, node = self.wait_for_ready_callbacks(
 [landing_controller-4]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 877, in wait_for_ready_callbacks
@@ -426,19 +701,7 @@
 [landing_controller-4]   File "/home/madakie/precision_landing/ros2_ws/install/pl_control/lib/pl_control/landing_controller", line 33, in <module>
 [landing_controller-4]     sys.exit(load_entry_point('pl-control==0.1.0', 'console_scripts', 'landing_controller')())
 [landing_controller-4]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[landing_controller-4]   File "/home/madakie/precision_landing/ros2_ws/install/pl_control/lib/python3.12/site-packages/pl_control/landing_controller.py", line 273, in main
-[tag_estimator-3]     raise ExternalShutdownException()
-[tag_estimator-3] rclpy.executors.ExternalShutdownException
-[tag_estimator-3] 
-[tag_estimator-3] During handling of the above exception, another exception occurred:
-[tag_estimator-3] 
-[tag_estimator-3] Traceback (most recent call last):
-[tag_estimator-3]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/tag_estimator", line 33, in <module>
-[tag_estimator-3]     sys.exit(load_entry_point('pl-perception==0.1.0', 'console_scripts', 'tag_estimator')())
-[tag_estimator-3]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[tag_estimator-3]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/python3.12/site-packages/pl_perception/tag_estimator.py", line 80, in main
-[tag_estimator-3]     rclpy.shutdown()
-[tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[landing_controller-4]   File "/home/madakie/precision_landing/ros2_ws/install/pl_control/lib/python3.12/site-packages/pl_control/landing_controller.py", line 297, in main
 [landing_controller-4]     rclpy.shutdown()
 [landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
 [landing_controller-4]     _shutdown(context=context)
@@ -447,12 +710,19 @@
 [landing_controller-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
 [landing_controller-4]     self.__context.shutdown()
 [landing_controller-4] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
-[tag_estimator-3]     _shutdown(context=context)
-[tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
-[tag_estimator-3]     context.shutdown()
-[tag_estimator-3]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
-[tag_estimator-3]     self.__context.shutdown()
-[tag_estimator-3] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
-[ERROR] [tag_estimator-3]: process has died [pid 4728, exit code 1, cmd '/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/tag_estimator --ros-args -r __node:=tag_estimator'].
-[ERROR] [landing_controller-4]: process has died [pid 4729, exit code 1, cmd '/home/madakie/precision_landing/ros2_ws/install/pl_control/lib/pl_control/landing_controller --ros-args -r __node:=landing_controller --params-file /tmp/launch_params_vzvskrh1 --params-file /tmp/launch_params_2v8qz02h'].
-[ERROR] [yolo_detector-2]: process has died [pid 4727, exit code 1, cmd '/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/yolo_detector --ros-args -r __node:=yolo_detector'].
+[yolo_detector-2] Traceback (most recent call last):
+[yolo_detector-2]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/yolo_detector", line 33, in <module>
+[yolo_detector-2]     sys.exit(load_entry_point('pl-perception==0.1.0', 'console_scripts', 'yolo_detector')())
+[yolo_detector-2]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[yolo_detector-2]   File "/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/python3.12/site-packages/pl_perception/yolo_detector.py", line 139, in main
+[yolo_detector-2]     rclpy.shutdown()
+[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[yolo_detector-2]     _shutdown(context=context)
+[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+[yolo_detector-2]     context.shutdown()
+[yolo_detector-2]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
+[yolo_detector-2]     self.__context.shutdown()
+[yolo_detector-2] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[ERROR] [tag_estimator-3]: process has died [pid 7529, exit code 1, cmd '/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/tag_estimator --ros-args -r __node:=tag_estimator'].
+[ERROR] [landing_controller-4]: process has died [pid 7530, exit code 1, cmd '/home/madakie/precision_landing/ros2_ws/install/pl_control/lib/pl_control/landing_controller --ros-args -r __node:=landing_controller --params-file /tmp/launch_params_gz5xk7az --params-file /tmp/launch_params_hcec20pq --params-file /tmp/launch_params_70fnymp7 --params-file /tmp/launch_params_ruh0bcy2'].
+[ERROR] [yolo_detector-2]: process has died [pid 7528, exit code 1, cmd '/home/madakie/precision_landing/ros2_ws/install/pl_perception/lib/pl_perception/yolo_detector --ros-args -r __node:=yolo_detector'].

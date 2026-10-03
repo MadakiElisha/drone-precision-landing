@@ -1,266 +1,290 @@
+"""Landing controller v5 — clean rewrite.
+
+States: WAYPOINT (optional circuit) -> CLIMB -> TRACK -> {BLIND|HOLD} -> DONE.
+Consumes filtered optical tag pose; emits offboard velocity setpoints.
+Single velocity assignment point; descent ramp always armed in TRACK;
+handoff to PX4 NAV_LAND on close-range lock or physical stall.
+"""
 import math
 
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+from px4_msgs.msg import (OffboardControlMode, TrajectorySetpoint,
+                          VehicleCommand, VehicleLocalPosition,
+                          VehicleStatus)
 from vision_msgs.msg import Detection3DArray
-from px4_msgs.msg import (
-    OffboardControlMode,
-    TrajectorySetpoint,
-    VehicleCommand,
-    VehicleLandDetected,
-    VehicleLocalPosition,
-    VehicleStatus,
-)
 
-CLIMB, TRACK, BLIND, HOLD, DONE = (
-    "CLIMB", "TRACK", "BLIND", "HOLD", "DONE")
+WAYPOINT, CLIMB, TRACK, BLIND, HOLD, DONE = (
+    "WAYPOINT", "CLIMB", "TRACK", "BLIND", "HOLD", "DONE")
 
 
 class LandingController(Node):
-    """Yaw-invariant precision landing.
-
-    TRACK : tag visible - centering + vision altitude ramp
-    BLIND : tag lost on final - constant slow sink, motion-based contact
-    HOLD  : blind budget exhausted - float and complain
-    DONE  : contact - cut thrust via offboard actuators so PX4's own land
-            detector fires, then normal disarm; force only as last resort
-    """
-
     def __init__(self):
         super().__init__("landing_controller")
+        qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT,
+                         history=HistoryPolicy.KEEP_LAST)
+
+        self.declare_parameter("tags_topic", "/pl/perception/tags_est")
         self.declare_parameter("allow_descent", True)
         self.declare_parameter("auto_climb", True)
-        self.k_xy = 0.5
-        self.v_max = 0.8
-        self.k_z = 0.8
-        self.vz_max = 0.5
-        self.ramp_per_tick = 0.0025
-        self.touchdown = 0.25
-        self.blind_entry = 0.6
-        self.blind_rate = 0.12
-        self.blind_budget = 25.0
+        self.declare_parameter("waypoints", "")
+        self.declare_parameter("spawn", "0,0")
 
-        self.state = CLIMB if self.get_parameter(
-            "auto_climb").value else TRACK
-        self.oz_target = None
+        # gains
+        self.k_xy = 0.5
+        self.k_z = 0.8
+        self.vxy_max = 1.0
+        self.vz_max = 0.8
+        self.touchdown = 0.25
+        self.ramp = 0.004
+        self.blind_entry = 0.6
+        self.sink = 0.12
+        self.handoff_oz = 0.55
+        self.handoff_h = 0.15
+        self.center_gate = 0.35
+
+        # perception / state estimate
+        self.opt = None
+        self.det_time = None
         self.last_oz = None
-        self.det = None
-        self.det_time = self.get_clock().now()
+        self.local_x = self.local_y = self.local_z = None
         self.heading = 0.0
-        self.landed = False
-        self.armed = True
-        self.local_z = None
+
+        # machine
+        self.waypoints = []
+        for chunk in self.get_parameter("waypoints").value.split(";"):
+            if chunk.strip():
+                self.waypoints.append(tuple(float(v) for v in chunk.split(",")))
+        sx, sy = (float(v) for v in self.get_parameter("spawn").value.split(","))
+        self.waypoints = [(wx - sx, wy - sy, a) for (wx, wy, a) in self.waypoints]
+        self.wp_idx = 0
+        self.state = CLIMB if self.get_parameter("auto_climb").value else (
+            WAYPOINT if self.waypoints else TRACK)
+        self.oz_target = None
+        self.done_ticks = 0
         self.probe_time = None
         self.probe_z = None
-        self.stall_count = 0
-        self.blind_start = None
-        self.done_ticks = 0
-        self.disarm_ticks = 0
-        self.announced = False
-        self.last_log_sec = -1
+        self.stall = 0
+        self.centered_descent = False
+        self.z_hold = None
+        self.stale_since = None
+        self.reacq = 0
+        self.nav = 0
+        self.gate = self.waypoints[-1] if self.waypoints else None
+        self.last_log = -1
 
-        qos = QoSProfile(
-            depth=10,
-            reliability=ReliabilityPolicy.BEST_EFFORT,
-            history=HistoryPolicy.KEEP_LAST,
-        )
-        self.declare_parameter("tags_topic", "/pl/perception/tags_est")
         topic = self.get_parameter("tags_topic").value
         self.get_logger().info(f"Subscribing to tags topic: {topic}")
-        self.sub = self.create_subscription(
-            Detection3DArray, topic, self.det_cb, 10)
-        self.sub_pos = self.create_subscription(
+        self.create_subscription(Detection3DArray, topic, self.det_cb, 10)
+        self.create_subscription(
             VehicleLocalPosition, "/fmu/out/vehicle_local_position",
             self.pos_cb, qos)
-        self.sub_land = self.create_subscription(
-            VehicleLandDetected, "/fmu/out/vehicle_land_detected",
-            self.land_cb, qos)
-        self.sub_status = self.create_subscription(
-            VehicleStatus, "/fmu/out/vehicle_status", self.status_cb, qos)
+        self.create_subscription(
+            VehicleStatus, "/fmu/out/vehicle_status", self.nav_cb, qos)
         self.pub_mode = self.create_publisher(
             OffboardControlMode, "/fmu/in/offboard_control_mode", qos)
         self.pub_sp = self.create_publisher(
             TrajectorySetpoint, "/fmu/in/trajectory_setpoint", qos)
         self.pub_cmd = self.create_publisher(
             VehicleCommand, "/fmu/in/vehicle_command", qos)
-        self.timer = self.create_timer(0.05, self.cmd_cb)
-
-    def pos_cb(self, msg):
-        self.heading = msg.heading
-        self.local_z = msg.z          # NED: down positive
-
-    def land_cb(self, msg):
-        self.landed = bool(msg.landed or msg.ground_contact)
-
-    def status_cb(self, msg):
-        self.armed = (msg.arming_state == 2)   # 2 == ARMING_STATE_ARMED
+        self.create_timer(0.05, self.cmd_cb)
+        if self.waypoints:
+            self.get_logger().info(
+                f"circuit: {len(self.waypoints)} local waypoints (spawn={sx},{sy})")
 
     def det_cb(self, msg):
-        if msg.detections and msg.detections[0].results:
-            p = msg.detections[0].results[0].pose.pose.position
-            self.det = (p.x, p.y, p.z)
-            self.det_time = self.get_clock().now()
+        if not msg.detections or not msg.detections[0].results:
+            return
+        p = msg.detections[0].results[0].pose.pose.position
+        self.opt = (p.x, p.y, p.z)
+        self.last_oz = p.z
+        self.det_time = self.get_clock().now()
 
-    def _disarm(self, ts, force=False):
-        cmd = VehicleCommand()
-        cmd.timestamp = ts
-        cmd.command = 400          # VEHICLE_CMD_ARM_DISARM
-        cmd.param1 = 0.0           # disarm
-        cmd.param2 = 211930.0 if force else 0.0
-        cmd.target_system = 1
-        cmd.target_component = 1
-        cmd.from_external = True
-        self.pub_cmd.publish(cmd)
+    def pos_cb(self, msg):
+        if not math.isfinite(msg.heading):
+            return
+        self.local_x, self.local_y, self.local_z = msg.x, msg.y, msg.z
+        self.heading = msg.heading
 
-    def _update_stall(self, now):
+    def nav_cb(self, msg):
+        self.nav = msg.nav_state
+
+    def _stall(self, now, active=True):
+        if not active:
+            self.stall = 0
+            self.probe_time, self.probe_z = now, self.local_z
+            return
+        if self.local_z is None:
+            return
         if self.probe_time is None:
-            self.probe_time = now
-            self.probe_z = self.local_z
+            self.probe_time, self.probe_z = now, self.local_z
             return
         dt = (now - self.probe_time).nanoseconds * 1e-9
         if dt >= 1.0:
-            if self.local_z is not None and self.probe_z is not None:
-                if (self.local_z - self.probe_z) < 0.01:
-                    self.stall_count += 1
-                else:
-                    self.stall_count = 0
-            self.probe_time = now
-            self.probe_z = self.local_z
+            if (self.local_z - self.probe_z) < 0.01:
+                self.stall += 1
+            else:
+                self.stall = 0
+            self.probe_time, self.probe_z = now, self.local_z
+
+    def _handoff(self, why):
+        self.state = DONE
+        self.done_ticks = 0
+        self.get_logger().warn(f"handoff ({why}): NAV_LAND")
 
     def cmd_cb(self):
         now = self.get_clock().now()
         ts = int(now.nanoseconds // 1000)
-
-        stale = (now - self.det_time).nanoseconds * 1e-9 > 0.5
-        fresh = self.det is not None and not stale
-
-        if self.state == DONE:
-            self.done_ticks += 1
-            # Hand the final meters to PX4's own AUTO_LAND: it owns the
-            # ground detection and auto-disarm logic.
-            if self.done_ticks <= 10 and self.done_ticks % 2 == 0:
-                cmd = VehicleCommand()
-                cmd.timestamp = ts
-                cmd.command = 21  # VEHICLE_CMD_NAV_LAND
-                cmd.param1 = 0.0
-                cmd.target_system = 1
-                cmd.target_component = 1
-                cmd.from_external = True
-                self.pub_cmd.publish(cmd)
-            # Publish no offboard setpoints: if NAV_LAND is ever refused,
-            # offboard-loss failsafe lands and disarms as a backstop.
-            if not self.armed and not self.announced:
-                self.announced = True
-                self.get_logger().info(
-                    "state=DONE disarmed by PX4, mission complete")
-            return
-
-        mode = OffboardControlMode()
-        mode.timestamp = ts
-        mode.velocity = True
-        self.pub_mode.publish(mode)
-
-        sp = TrajectorySetpoint()
-        sp.timestamp = ts
-        sp.position = [float("nan")] * 3
+        fresh = (self.opt is not None and self.det_time is not None
+                 and (now - self.det_time).nanoseconds * 1e-9 < 0.5)
         vx = vy = vz = 0.0
-        opt = None
 
-        if self.state == CLIMB:
-            if self.local_z is not None and self.local_z > -2.2:
+        if self.state == WAYPOINT:
+            wx, wy, walt = self.waypoints[self.wp_idx]
+            tz = 0.3 - walt
+            if self.local_z is not None:
+                dx, dy, dz = wx - self.local_x, wy - self.local_y, tz - self.local_z
+                dist = math.sqrt(dx * dx + dy * dy + dz * dz)
+                if dist < 0.5:
+                    self.wp_idx += 1
+                    self.get_logger().info(
+                        f"waypoint {self.wp_idx}/{len(self.waypoints)} reached")
+                    if self.wp_idx >= len(self.waypoints):
+                        self.state = TRACK
+                        self.oz_target = None
+                        self.get_logger().info("circuit complete: entering TRACK")
+                else:
+                    sp = min(2.0, 0.8 * dist)
+                    vx, vy, vz = sp * dx / dist, sp * dy / dist, sp * dz / dist
+                    vz = max(-1.0, min(1.0, vz))
+
+        elif self.state == CLIMB:
+            if self.local_z is None:
+                pass
+            elif self.local_z > -2.2:
                 vz = -0.6
-                if fresh:
-                    ox, oy, oz = self.det
-                    opt = (ox, oy, oz)
-                    bx, by = -oy, -ox
-                    v_bx = max(-self.v_max, min(self.v_max, self.k_xy * bx))
-                    v_by = max(-self.v_max, min(self.v_max, self.k_xy * -by))
-                    cy = math.cos(self.heading)
-                    sy = math.sin(self.heading)
-                    vx = v_bx * cy - v_by * sy
-                    vy = v_bx * sy + v_by * cy
+            elif self.waypoints:
+                self.state = WAYPOINT
+                self.get_logger().info("climb complete: entering WAYPOINT")
             else:
                 self.state = TRACK
                 self.get_logger().info("climb complete: entering TRACK")
 
-        if self.state == TRACK:
+        elif self.state == TRACK:
             if fresh:
-                ox, oy, oz = self.det
-                opt = (ox, oy, oz)
-                self.last_oz = oz
-                self._update_stall(now)
-                bx, by = -oy, -ox
-                v_bx = max(-self.v_max, min(self.v_max, self.k_xy * bx))
-                v_by = max(-self.v_max, min(self.v_max, self.k_xy * -by))
-                cy = math.cos(self.heading)
-                sy = math.sin(self.heading)
-                vx = v_bx * cy - v_by * sy
-                vy = v_bx * sy + v_by * cy
-                h_err = math.hypot(bx, by)
-                if h_err < 0.15:
-                    if self.oz_target is None:
-                        self.oz_target = oz
-                    if self.get_parameter("allow_descent").value:
-                        self.oz_target = max(
-                            self.oz_target - self.ramp_per_tick, self.touchdown)
-                    vz = max(-self.vz_max, min(
-                        self.vz_max, self.k_z * (oz - self.oz_target)))
-                    if (h_err < 0.15 and oz <= 0.55) or self.stall_count >= 2:
-                        self.state = DONE
-                        self.get_logger().warn(
-                            f"close-range lock oz={oz:.2f} "
-                            f"stall={self.stall_count}: NAV_LAND handoff")
-                    elif oz <= self.touchdown + 0.02:
-                        vz = 0.0
-                else:
-                    self.oz_target = None
+                self.stale_since = None
+                self.z_hold = None
+                ox, oy, oz = self.opt
+                th = self.heading or 0.0
+                c, s = math.cos(th), math.sin(th)
+                bx, by = -self.k_xy * oy, self.k_xy * ox
+                vx = c * bx - s * by
+                vy = s * bx + c * by
+                h = math.hypot(vx, vy)
+                if h > self.vxy_max:
+                    vx, vy = vx / h * self.vxy_max, vy / h * self.vxy_max
+                herr = math.hypot(ox, oy)
+                if self.oz_target is None:
+                    self.oz_target = min(oz, 3.0)
+                if self.get_parameter("allow_descent").value:
+                    self.oz_target = max(self.oz_target - self.ramp, self.touchdown)
+                if herr < self.center_gate:
+                    vz = max(0.0, min(self.vz_max, self.k_z * (oz - self.oz_target)))
+                    if vz > 0.05:
+                        self.centered_descent = True
+                self._stall(now, active=(vz > 0.05))
+                if ((herr < 0.45 and oz <= self.handoff_oz)
+                        or (self.stall >= 2 and oz < 2.0)):
+                    self._handoff(f"oz={oz:.2f} herr={herr:.2f} stall={self.stall}")
+            elif self.last_oz is not None and (
+                    self.last_oz <= self.blind_entry or self.centered_descent):
+                self.state = BLIND
+                self.get_logger().info(
+                    f"tag lost at oz={self.last_oz:.2f} "
+                    f"centered_descent={self.centered_descent}: BLIND")
             else:
-                if (self.get_parameter("allow_descent").value
-                        and self.last_oz is not None
-                        and self.last_oz <= self.blind_entry):
-                    self.state = BLIND
-                    self.blind_start = now
-                    self.probe_time = None
-                    self.probe_z = None
-                    self.stall_count = 0
-                    self.get_logger().warn(
-                        f"tag lost at {self.last_oz:.2f} m: entering BLIND descent")
+                self.state = HOLD
+                self.get_logger().info("tag lost high: HOLD")
 
         elif self.state == BLIND:
-            vx = vy = 0.0
-            vz = self.blind_rate
-            elapsed = (now - self.blind_start).nanoseconds * 1e-9
-
-            self._update_stall(now)
-
-            if self.landed or self.stall_count >= 2:
-                self.state = DONE
-                self.get_logger().warn(
-                    "CONTACT detected: handing touchdown to PX4 AUTO_LAND")
-            elif elapsed > self.blind_budget:
-                self.state = HOLD
-                self.get_logger().error(
-                    "BLIND budget exhausted without contact: HOLDING")
+            vz = self.sink
+            self._stall(now)
+            if self.stall >= 2:
+                self._handoff(f"blind stall={self.stall}")
+            elif fresh:
+                self.state = TRACK
+                self.get_logger().info("tag reacquired: TRACK")
 
         elif self.state == HOLD:
-            vx = vy = vz = 0.0
+            if self.z_hold is None and self.local_z is not None:
+                self.z_hold = self.local_z
+            if self.z_hold is not None and self.local_z is not None:
+                vz = max(-0.25, min(0.25, 0.6 * (self.z_hold - self.local_z)))
+            if fresh:
+                self.state = TRACK
+                self.z_hold = None
+                self.stale_since = None
+                self.get_logger().info("tag reacquired: TRACK")
+            else:
+                if self.stale_since is None:
+                    self.stale_since = now
+                elif ((now - self.stale_since).nanoseconds * 1e-9 > 8.0
+                        and self.gate is not None and self.reacq < 2):
+                    self.reacq += 1
+                    # Offset 2m toward pad to get it into camera FOV
+                    pad_local = (-1.0, 0.0)
+                    dx = pad_local[0] - self.gate[0]
+                    dy = pad_local[1] - self.gate[1]
+                    dist = (dx**2 + dy**2)**0.5
+                    if dist > 0:
+                        dx, dy = dx / dist * 2.0, dy / dist * 2.0
+                    self.waypoints = [(self.gate[0] + dx, self.gate[1] + dy, self.gate[2])]
+                    self.wp_idx = 0
+                    self.state = WAYPOINT
+                    self.oz_target = None
+                    self.centered_descent = False
+                    self.stale_since = None
+                    self.get_logger().info(
+                        f"reacquire {self.reacq}: returning to gate")
 
+        if self.state == DONE:
+            self.done_ticks += 1
+            if self.done_ticks <= 10 and self.done_ticks % 2 == 0:
+                cmd = VehicleCommand()
+                cmd.timestamp = ts
+                cmd.command = 21  # NAV_LAND
+                cmd.target_system = 1
+                cmd.target_component = 1
+                cmd.from_external = True
+                self.pub_cmd.publish(cmd)
+            sec = now.nanoseconds // 1_000_000_000
+            if sec != self.last_log:
+                self.last_log = sec
+                self.get_logger().info("state=DONE awaiting PX4 touchdown")
+            return  # stop the offboard stream so PX4 owns the landing
+
+        mode = OffboardControlMode()
+        mode.timestamp = ts
+        mode.position = False
+        mode.velocity = True
+        mode.acceleration = False
+        self.pub_mode.publish(mode)
+        sp = TrajectorySetpoint()
+        sp.timestamp = ts
+        sp.position = [float("nan")] * 3
         sp.velocity = [vx, vy, vz]
+        sp.yaw = float("nan")
         self.pub_sp.publish(sp)
 
-        if now.nanoseconds // 1_000_000_000 != self.last_log_sec:
-            self.last_log_sec = now.nanoseconds // 1_000_000_000
-            tgt = "--.--" if self.oz_target is None else f"{self.oz_target:.2f}"
-            if opt is None:
-                self.get_logger().info(
-                    f"state={self.state} opt=NONE tgt={tgt} "
-                    f"cmd=(0.00, 0.00, {vz:+.2f}) stall={self.stall_count}")
-            else:
-                self.get_logger().info(
-                    f"state={self.state} opt=({opt[0]:+.2f},{opt[1]:+.2f},"
-                    f"{opt[2]:.2f}) tgt={tgt} yaw={math.degrees(self.heading):+.0f} "
-                    f"cmd_ned=({vx:+.2f},{vy:+.2f},{vz:+.2f})")
+        sec = now.nanoseconds // 1_000_000_000
+        if sec != self.last_log:
+            self.last_log = sec
+            o = f"({self.opt[0]:+.2f},{self.opt[1]:+.2f},{self.opt[2]:.2f})" if self.opt else "NONE"
+            t = f"{self.oz_target:.2f}" if self.oz_target is not None else "--.--"
+            self.get_logger().info(
+                f"state={self.state} nav={self.nav} opt={o} tgt={t} yaw={self.heading:+.0f} "
+                f"cmd=({vx:+.2f},{vy:+.2f},{vz:+.2f}) stall={self.stall}")
 
 
 def main(args=None):
